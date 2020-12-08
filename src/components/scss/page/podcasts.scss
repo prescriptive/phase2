@@ -1,0 +1,40 @@
+#slice-id-podcast-top {
+  .left-right-container {
+    align-items: flex-start;
+    section {
+      &:nth-child(2) {
+        @include mobile() {
+          padding: 0px 0px;
+        }
+        .block-img {
+          display: flex;
+          justify-content: flex-end;
+          @include mobile() {
+            justify-content: flex-start;
+            display: block;
+            margin-top: 0px;
+          }
+          img {
+            margin: unset;
+          }
+        }
+      }
+    }
+  }
+  .section-content {
+    p {
+      &:nth-child(1) {
+        font-family: Times New Roman;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 48px;
+        line-height: 48px;
+      }
+    }
+  }
+}
+#slice-id-podcast-query {
+  section {
+    padding-bottom: 0px;
+  }
+}

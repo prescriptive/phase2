@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  // transition: 0.3s;
+  color: $darkGray;
+}
+body {
+  margin: 0px;
+  font-family: "Roboto";
+  font-weight: 400;
+}
+h1 {
+  font-family: "Libre Franklin";
+  font-weight: 800;
+  font-size: 54px;
+  line-height: 72px;
+  a {
+    text-decoration: underline;
+    display: block;
+  }
+}
+h2 {
+  font-family: "Libre Franklin";
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 48px;
+  display: inline-block;
+  margin: 25px 0px 25px 0px;
+  .h2-light {
+    font-family: "Roboto";
+    font-weight: 500;
+  }
+}
+h3 {
+  font-family: "Libre Franklin";
+  font-size: 27px;
+  font-weight: 800;
+  .h2-light {
+    font-family: "Roboto";
+    font-weight: 500;
+  }
+}
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+p {
+  font-size: 18px;
+  color: $darkGray;
+  line-height: 24px;
+  display: inline-block;
+  width: 100%;
+  a {
+    text-decoration: underline;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+.cta-button {
+  @include cta-button($darkGray);
+}
+._form {
+  display: none;
+}
+.block-img img {
+  @include mobile() {
+    width: 100%;
+    height: auto;
+  }
+}
+.MuiTooltip-popper {
+  a {
+    color: white;
+    display: block;
+    padding: 4px 0px;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+.typeform-cta {
+  cursor: pointer;
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 6px;
+  color: #d23026;
+}
