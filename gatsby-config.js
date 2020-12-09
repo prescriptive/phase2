@@ -62,22 +62,22 @@ module.exports = {
       },
     },
     {
-      resolve: '@slixites/gatsby-plugin-google-fonts',
+      resolve: "@slixites/gatsby-plugin-google-fonts",
       options: {
         fonts: [
           `Libre Franklin\:500,800,900`,
-          `Roboto\:400,500,700,900` // you can also specify font weights and styles
+          `Roboto\:400,500,700,900`, // you can also specify font weights and styles
         ],
-        display: 'swap',
+        display: "swap",
         preconnect: true,
         attributes: {
-            rel: 'stylesheet preload prefetch',
-            as: 'style',
+          rel: "stylesheet preload prefetch",
+          as: "style",
         },
-      }
+      },
     },
 
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
     // 'gatsby-plugin-loadable-components-ssr',
     {
