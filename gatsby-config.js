@@ -46,7 +46,7 @@ module.exports = {
           return "/"
         },
         // PrismJS highlighting for labels and slices
-        repositoryName: `prescriptive`,
+        repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
         schemas: {
           pa: require("./src/schemas/page.json"),

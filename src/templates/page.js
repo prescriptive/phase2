@@ -3,17 +3,10 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import * as variable from "../components/variables"
 import styled from "styled-components"
-import "../components/scss/page/home.scss"
-import "../components/scss/page/about.scss"
-import "../components/scss/page/solutions.scss"
 import "../components/scss/page/careers.scss"
-import "../components/scss/page/contact.scss"
 import "../components/scss/page/phase2.scss"
 import "../components/scss/page/phase2new.scss"
-import "../components/scss/page/dir.scss"
-import "../components/scss/page/podcasts.scss"
-import "../components/scss/page/insights.scss"
-import "../components/scss/page/microsoft365.scss"
+import "../components/scss/page/faq.scss"
 import SEO from "../components/seo"
 import { ReactTypeformEmbed } from "react-typeform-embed"
 
@@ -201,67 +194,6 @@ export const postQuery = graphql`
           }
           title {
             text
-          }
-        }
-      }
-    }
-    podinfo: allPrismicPodcast {
-      nodes {
-        data {
-          buzzsprout_id {
-            text
-          }
-          podcast_image {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    podcast: allBuzzsproutPodcastEpisode(filter: { private: { eq: false } }) {
-      nodes {
-        title
-        slug
-        artwork_url
-        artist
-        description
-        summary
-        private
-      }
-    }
-    leadership: allPrismicLeadership {
-      nodes {
-        data {
-          bio {
-            html
-            raw
-          }
-          linkedin {
-            url
-          }
-          name {
-            text
-          }
-          photo {
-            url
-            localFile {
-              childImageSharp {
-                fixed(width: 98, height: 98) {
-                  ...GatsbyImageSharpFixed_withWebp_noBase64
-                }
-              }
-            }
-          }
-          title {
-            text
-          }
-          twitter {
-            url
           }
         }
       }
@@ -699,35 +631,6 @@ export const postQuery = graphql`
           }
           twitter_author {
             text
-          }
-        }
-      }
-    }
-    blog: allPrismicBlogPost(
-      sort: { order: DESC, fields: data___release_date }
-    ) {
-      nodes {
-        uid
-        data {
-          release_date(formatString: "MMM D Y")
-          teaser {
-            html
-          }
-          author {
-            text
-          }
-          title {
-            text
-          }
-          main_image {
-            url
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
           }
         }
       }

@@ -2,10 +2,10 @@ import styled from "styled-components"
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
 import Container from "../container"
-import BlogPostTeaser from "../entities/blog_post/BlogPostTeaser"
-import LeadershipTeaser from "../entities/leadership/LeadershipTeaser"
+// import BlogPostTeaser from "../entities/blog_post/BlogPostTeaser"
+// import LeadershipTeaser from "../entities/leadership/LeadershipTeaser"
 import JobTeaser from "../entities/job/JobTeaser"
-import PodcastTeaser from "../entities/podcast/PodcastTeaser"
+// import PodcastTeaser from "../entities/podcast/PodcastTeaser"
 import * as variable from "../variables"
 
 const EntityQueryStyle = styled.div`
@@ -38,7 +38,8 @@ const EntityQueryStyle = styled.div`
 `
 
 // Sort and display the different slice options
-const EntityResult = ({ slice, blog, leadership, job, podcast, podinfo }) => {
+const EntityResult = ({ slice, job }) => {
+  console.log(job)
   // return slices.map((slice, index) => {
   //   const res = () => {
   //     switch (slice.slice_type) {
@@ -51,21 +52,21 @@ const EntityResult = ({ slice, blog, leadership, job, podcast, podinfo }) => {
   //     }
   //   }
   // })
-  if (slice.primary.entity_type == "Leadership") {
-    return leadership.nodes
-      .slice(0, slice.primary.entity_count)
-      .map((post, index) => (
-        <LeadershipTeaser post={post} key={index}></LeadershipTeaser>
-      ))
-  }
+  // if (slice.primary.entity_type == "Leadership") {
+  //   return leadership.nodes
+  //     .slice(0, slice.primary.entity_count)
+  //     .map((post, index) => (
+  //       <LeadershipTeaser post={post} key={index}></LeadershipTeaser>
+  //     ))
+  // }
 
-  if (slice.primary.entity_type == "Blog Post") {
-    return blog.nodes
-      .slice(0, slice.primary.entity_count)
-      .map((post, index) => (
-        <BlogPostTeaser post={post} key={index}></BlogPostTeaser>
-      ))
-  }
+  // if (slice.primary.entity_type == "Blog Post") {
+  //   return blog.nodes
+  //     .slice(0, slice.primary.entity_count)
+  //     .map((post, index) => (
+  //       <BlogPostTeaser post={post} key={index}></BlogPostTeaser>
+  //     ))
+  // }
 
   if (slice.primary.entity_type == "Job") {
     return job.nodes
@@ -73,17 +74,17 @@ const EntityResult = ({ slice, blog, leadership, job, podcast, podinfo }) => {
       .map((post, index) => <JobTeaser post={post} key={index}></JobTeaser>)
   }
 
-  if (slice.primary.entity_type == "Podcast") {
-    return podcast.nodes
-      .slice(0, slice.primary.entity_count)
-      .map((post, index) => (
-        <PodcastTeaser
-          post={post}
-          key={index}
-          podinfo={podinfo.nodes}
-        ></PodcastTeaser>
-      ))
-  }
+  // if (slice.primary.entity_type == "Podcast") {
+  //   return podcast.nodes
+  //     .slice(0, slice.primary.entity_count)
+  //     .map((post, index) => (
+  //       <PodcastTeaser
+  //         post={post}
+  //         key={index}
+  //         podinfo={podinfo.nodes}
+  //       ></PodcastTeaser>
+  //     ))
+  // }
 
   // {blog.nodes.slice(0, entityCount).map((post, index) => (
   //   <BlogPostTeaser post={post} key={index}></BlogPostTeaser>
@@ -92,11 +93,7 @@ const EntityResult = ({ slice, blog, leadership, job, podcast, podinfo }) => {
 
 export const EntityQuerySlice = ({
   slice,
-  blog,
-  leadership,
   job,
-  podcast,
-  podinfo,
 }) => {
   var fluid = null
 
@@ -110,18 +107,6 @@ export const EntityQuerySlice = ({
 
   var entityType = null
 
-  if (slice.primary.type == "e") {
-    entity = leadership
-    entityType = "leadership"
-  }
-  if (slice.primary.type == "Leadership") {
-    entity = leadership
-    entityType = "leadership"
-  }
-  if (slice.primary.type == "Blog Post") {
-    entity = blog
-    entityType = "leadership"
-  }
 
   if (slice.primary.background_imageSharp != null) {
     fluid = slice.primary.background_image.localFile.childImageSharp.fluid
@@ -189,11 +174,7 @@ export const EntityQuerySlice = ({
               <EntityQueryStyle>
                 <EntityResult
                   slice={slice}
-                  blog={blog}
-                  leadership={leadership}
                   job={job}
-                  podcast={podcast}
-                  podinfo={podinfo}
                 />
               </EntityQueryStyle>
             </section>

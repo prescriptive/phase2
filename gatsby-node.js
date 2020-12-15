@@ -8,8 +8,24 @@ exports.createPages = async ({ graphql, actions }) => {
           uid
         }
       }
+      job: allPrismicJob {
+        nodes {
+          uid
+        }
+      }
     }
   `)
+
+    const jobTemplate = path.resolve("src/templates/job.js")
+      pages.data.job.nodes.forEach(node => {
+      createPage({
+      path: `/current-opportunity/${node.uid}`,
+      component: jobTemplate,
+        context: {
+        uid: node.uid,
+        },
+      })
+    })
 
   const pageTemplate = path.resolve("src/templates/page.js")
   pages.data.page.nodes.forEach(node => {

@@ -8,6 +8,9 @@ import * as variable from "../variables"
 import MobileMenu from "../mobileMenu"
 
 const HeaderStyle = styled.header`
+position: absolute;
+    width: 100%;
+    z-index:9;
   .header-social-container {
     background-color: ${variable.darkGray};
     padding: 12px 0px;
@@ -25,7 +28,6 @@ const HeaderStyle = styled.header`
       }
     }
   }
-  background-color: ${variable.offWhite};
   .header-container {
     display: flex;
     justify-content: space-between;
@@ -55,35 +57,18 @@ const HeaderStyle = styled.header`
       list-style: none;
       margin-right: 50px;
       position: relative;
-      &:last-child {
-        margin-right: 0px;
-        a {
-          background-color: ${variable.darkGray};
-          color: white;
-          padding: 15px 30px;
-          border-radius: 4px;
-          &:hover {
-            background-color: ${variable.medGray};
-            transition: all 0.3s ease;
-            color: white;
-          }
-          &[aria-current] {
-            color: white !important;
-          }
-        }
-      }
       a {
         text-decoration: none;
-        color: ${variable.medLightGray};
+        color: white;
         font-size: 18px;
         text-transform: uppercase;
         font-weight: 400;
         padding: 20px 0px;
         &:hover {
-          color: ${variable.red};
+          text-decoration:underline;
         }
         &[aria-current] {
-          color: ${variable.red};
+          text-decoration:underline;
         }
       }
       .sub-menu {
@@ -129,7 +114,7 @@ const HeaderStyle = styled.header`
   }
 `
 const activeStyle = {
-  color: variable.red,
+  textDecoration:'underline',
 }
 
 function menuRender(menuitem) {
@@ -255,18 +240,6 @@ export const Header = () => {
   }
   return (
     <HeaderStyle className="header">
-      {twitter && (
-        <div className="header-social-container">
-          <Container>
-            <div className="social-container">
-              <a href={twitter} target="_blank" rel="noreferrer">
-                {/* <FontAwesomeIcon icon={faTwitter} /> */}
-                <Img fixed={twittericon} />
-              </a>
-            </div>
-          </Container>
-        </div>
-      )}
       <Container className="header-container">
         <Link className="logo" to="/">
           <Img fluid={logo} alt="logo" />
