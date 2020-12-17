@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from 'react'
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import * as variable from "../components/variables"
@@ -17,7 +17,8 @@ import { ReactTypeformEmbed } from "react-typeform-embed"
 // import HeroSlice from "../components/slices/HeroSlice"
 // import BlockReferenceSlice from "../components/slices/BlockReferenceSlice"
 import loadable from "@loadable/component"
-
+import '../../node_modules/react-modal-video/scss/modal-video.scss';
+import ModalVideo from 'react-modal-video'
 // Sort and display the different slice options
 const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
   return slices.map((slice, index) => {
@@ -156,7 +157,8 @@ const Page = ({ data }) => {
   const site = data.site
   const podinfo = data.podinfo
   const blog = data.blog
-  //   const site = data.site.allSite_informations.edges[0].node
+  const [isOpen, setOpen] = useState(false)
+  console.log(node.data)
   return (
     <Layout slug={node.uid}>
       <SEO site={site} page={node} />
@@ -171,6 +173,14 @@ const Page = ({ data }) => {
             blog={blog}
           />
         )}
+        {node.data.youtube_popup_id.text &&(
+                <React.Fragment>
+                <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={node.data.youtube_popup_id.text} onClose={() => setOpen(false)} />
+                <button style={{display: 'none'}} className="youtube-open" onClick={()=> setOpen(true)}>Open Video</button>
+            </React.Fragment>
+        )}
+
+
       </PageStyle>
     </Layout>
   )
@@ -208,6 +218,9 @@ export const postQuery = graphql`
         donotindex
         webinar
         typeform_url {
+          text
+        }
+        youtube_popup_id {
           text
         }
         title {

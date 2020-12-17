@@ -34,6 +34,13 @@
         "label" : "Typeform URL"
       }
     },
+    "youtube_popup_id" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "paragraph",
+        "label" : "Youtube Popup ID"
+      }
+    },
     "body" : {
       "type" : "Slices",
       "fieldset" : "Slice zone",
@@ -116,7 +123,7 @@
                   "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
                   "allowTargetBlank" : true,
                   "label" : "Content",
-                  "labels" : [ "cta-button", "right-align", "center-align", "h2-light", "h3-light", "typeform-cta" ]
+                  "labels" : [ "cta-button", "right-align", "center-align", "h2-light", "h3-light", "typeform-cta", "youtube-popup" ]
                 }
               }
             },
