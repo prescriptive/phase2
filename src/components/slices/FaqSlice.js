@@ -4,6 +4,16 @@ import Container from "../container"
 import { RichText} from "prismic-reactjs"
 import linkResolver from "../../utils/linkResolver"
 import prismicHtmlSerializer from "../../gatsby/htmlSerializer"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel,
+} from 'react-accessible-accordion';
+
+// Demo styles, see 'Styles' section below for some notes on use.
+import 'react-accessible-accordion/dist/fancy-example.css';
 
 const FaqStyle = styled.div`
 
@@ -16,19 +26,31 @@ export const FaqSlice = ({ slice }) => {
   return (
     <FaqStyle>
           <Container className="faq-slice-container">
+          <Accordion allowZeroExpanded>
           {slice.items.map((qa, index) => (
-            <div className="qa-container">
-            <div className="faq-question">{qa.question.text}</div>
-            <div className="faq-answer">
-            <RichText
+
+
+<AccordionItem>
+<AccordionItemHeading>
+    <AccordionItemButton>
+    {qa.question.text}
+    </AccordionItemButton>
+</AccordionItemHeading>
+<AccordionItemPanel>
+<RichText
                 render={qa.answer.raw}
                 linkResolver={linkResolver}
                 htmlSerializer={prismicHtmlSerializer}
               />
-            </div>
-            </div>
+</AccordionItemPanel>
+</AccordionItem>
+
+
           )
           )}
+ 
+        </Accordion>
+
           </Container>
     </FaqStyle>
   )
