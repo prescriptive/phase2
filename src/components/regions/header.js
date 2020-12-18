@@ -8,9 +8,13 @@ import * as variable from "../variables"
 import MobileMenu from "../mobileMenu"
 
 const HeaderStyle = styled.header`
-position: absolute;
+/* position: absolute;
     width: 100%;
-    z-index:9;
+    z-index:9; */
+    background-image:linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
+  .the-header-container{
+    position:relative;
+  }
   .header-social-container {
     background-color: ${variable.darkGray};
     padding: 12px 0px;
@@ -34,12 +38,34 @@ position: absolute;
     align-items: center;
     padding-top: 24px;
     padding-bottom: 24px;
+    @media (max-width: ${variable.tabletWidth}) {
+      padding-top:30px;
+      padding-bottom:30px;
+    }
   }
   .logo {
     max-width: 293px;
     width: 293px;
     img {
       max-width: 100%;
+    }
+  }
+  .back-to-pre{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    position:absolute;
+    padding-left: inherit;
+    padding-right: inherit;
+    position: absolute;
+    left: 0;
+    right: 0;
+    a{
+      background-color: ${variable.offWhite};
+      color: ${variable.darkGray};
+      display:block;
+      border-radius: 0px 0px 6px 6px;
+      padding:5px 15px;
     }
   }
 
@@ -57,11 +83,13 @@ position: absolute;
       list-style: none;
       margin-right: 50px;
       position: relative;
+      &:last-child{
+        margin-right:0px;
+      }
       a {
         text-decoration: none;
         color: white;
         font-size: 18px;
-        text-transform: uppercase;
         font-weight: 400;
         padding: 20px 0px;
         &:hover {
@@ -240,7 +268,9 @@ export const Header = () => {
   }
   return (
     <HeaderStyle className="header">
-      <Container className="header-container">
+      <Container className="the-header-container">
+        <div class="back-to-pre"><a href="https://www.prescriptive.solutions">Go to Prescriptive Solutions</a></div>
+        <div className="header-container">
         <Link className="logo" to="/">
           <Img fluid={logo} alt="logo" />
         </Link>
@@ -250,6 +280,7 @@ export const Header = () => {
             <li key={index}>{menuRender(menuitem)}</li>
           ))}
         </ul>
+        </div>
       </Container>
     </HeaderStyle>
   )

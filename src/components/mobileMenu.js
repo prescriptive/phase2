@@ -70,10 +70,10 @@ const MobileContainer = styled.div`
       top: 0;
     }
     .bm-cross {
-      background: #000000;
+      background: white;
     }
     .bm-burger-bars {
-      background: #000000;
+      background: white;
       border-radius: 10px;
     }
     .bm-menu {
@@ -109,7 +109,7 @@ const MenuToggle = styled.div`
     position: absolute;
     height: 7px;
     width: 100%;
-    background: #000000;
+    background: white;
     border-radius: 10px;
     opacity: 1;
     left: 0;
