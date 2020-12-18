@@ -53,7 +53,8 @@
           "slideshow" : [ ],
           "block_reference" : [ ],
           "contact" : [ ],
-          "hero" : [ ]
+          "hero" : [ ],
+          "faq" : [ ]
         },
         "choices" : {
           "basic_section" : {
@@ -475,6 +476,31 @@
               }
             },
             "repeat" : { }
+          },
+          "faq" : {
+            "type" : "Slice",
+            "fieldset" : "FAQ",
+            "description" : "FAQ Section",
+            "icon" : "question_answer",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "question" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Question"
+                }
+              },
+              "answer" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Answer"
+                }
+              }
+            }
           }
         }
       }

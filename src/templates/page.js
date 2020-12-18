@@ -28,6 +28,7 @@ const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
         var sliceID = slice.primary.slice_id.text
       }
     }
+    console.log(slice.slice_type)
     const res = (() => {
       switch (slice.slice_type) {
         case "basic_section":
@@ -57,7 +58,19 @@ const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
               {<HeroSlice slice={slice} />}
             </div>
           )
-
+          case "faq":
+            const FaqSlice = loadable(() =>
+              import(`../components/slices/FaqSlice`)
+            )
+            return (
+              <div
+                id={"slice-id-" + sliceID}
+                key={index}
+                className="slice-wrapper slice-faq"
+              >
+                {<FaqSlice slice={slice} />}
+              </div>
+            )
         case "block_reference":
           const BlockReferenceSlice = loadable(() =>
             import(`../components/slices/BlockReferenceSlice`)
@@ -227,6 +240,18 @@ export const postQuery = graphql`
           text
         }
         body {
+          ... on PrismicPaBodyFaq {
+            id
+            items {
+              answer {
+                raw
+              }
+              question {
+                text
+              }
+            }
+            slice_type
+          }
           ... on PrismicPaBodySlideshow {
             id
             primary {

@@ -90,7 +90,11 @@ img {
 .youtube-popup {
   cursor: pointer;
   background-color: white;
-  padding: 20px 40px;
+  padding: 20px 80px 20px 20px;  
   border-radius: 6px;
   color: #d23026;
+  background-image:url(../../../images/camera-red.png);
+  background-size:40px;
+  background-position: right 20px center;
+  background-repeat: no-repeat;
 }
