@@ -122,7 +122,7 @@ const MenuToggle = styled.div`
     transform-origin: left center;
   }
   span:nth-child(2) {
-    top: ${props => (props.open ? 0 : "calc(50% - 3.5px)")};
+    top: ${props => (props.open ? 0 : "calc(50% - 4.5px)")};
     left: ${props => (props.open ? "calc(50% - 2.5px)" : null)};
     width: ${props => (props.open ? "5px" : null)};
     height: ${props => (props.open ? "100%" : null)};
