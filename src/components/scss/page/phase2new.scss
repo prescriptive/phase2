@@ -60,7 +60,7 @@
     }
     p {
       margin: 0px;
-      color: white;
+      color: white !important;
     }
     a {
       color: white;
@@ -96,7 +96,7 @@
       color: white;
     }
     p {
-      color: white;
+      color: white !important;
     }
     &:before {
       background-size: contain;
@@ -327,7 +327,7 @@
     margin: 0px;
   }
   p {
-    color: white;
+    color: white !important;
     font-size: 27px;
     line-height: 36px;
     a {

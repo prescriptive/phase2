@@ -1,5 +1,5 @@
 export const mobileWidthSmall = "600px"
-export const mobileWidth = "800px"
+export const mobileWidth = "860px"
 export const tabletWidth = "1100px"
 export const desktopWidth = "1240px"
 export const darkGray = "#3c3e46"

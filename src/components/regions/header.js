@@ -36,9 +36,9 @@ const HeaderStyle = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 24px;
+    padding-top: 0px;
     padding-bottom: 24px;
-    @media (max-width: ${variable.tabletWidth}) {
+    @media (max-width: ${variable.mobileWidth}) {
       padding-top:30px;
       padding-bottom:30px;
     }
@@ -54,15 +54,18 @@ const HeaderStyle = styled.header`
     width:100%;
     display:flex;
     justify-content:flex-end;
-    position:absolute;
+    /* position:absolute;
     padding-left: inherit;
     padding-right: inherit;
     position: absolute;
     left: 0;
-    right: 0;
+    right: 0; */
+    @media (max-width: ${variable.mobileWidth}) {
+      display:none;
+    }
     a{
-      background-color: ${variable.offWhite};
-      color: ${variable.darkGray};
+      background-color: #EA7662;
+      color: ${variable.offWhite};
       display:block;
       border-radius: 0px 0px 6px 6px;
       padding:5px 15px;
@@ -92,6 +95,8 @@ const HeaderStyle = styled.header`
         font-size: 18px;
         font-weight: 400;
         padding: 20px 0px;
+        position:relative;
+        top:6px;
         &:hover {
           text-decoration:underline;
         }
@@ -132,7 +137,7 @@ const HeaderStyle = styled.header`
   .mobile-menu-container {
     display: none;
   }
-  @media (max-width: ${variable.tabletWidth}) {
+  @media (max-width: ${variable.mobileWidth}) {
     .mobile-menu-container {
       display: block;
     }
@@ -246,7 +251,7 @@ export const Header = () => {
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 400) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                    ...GatsbyImageSharpFluid_tracedSVG
                   }
                 }
               }

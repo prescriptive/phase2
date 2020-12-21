@@ -103,11 +103,11 @@ const MenuToggle = styled.div`
   cursor: pointer;
   margin-left: auto;
   top: ${props => (props.open ? "28px" : "auto")};
-  right: ${props => (props.open ? "20px" : "auto")};
+  right: ${props => (props.open ? "5%" : "auto")};
   span {
     display: block;
     position: absolute;
-    height: 7px;
+    height: 5px;
     width: 100%;
     background: white;
     border-radius: 10px;
@@ -123,8 +123,8 @@ const MenuToggle = styled.div`
   }
   span:nth-child(2) {
     top: ${props => (props.open ? 0 : "calc(50% - 3.5px)")};
-    left: ${props => (props.open ? "calc(50% - 3.5px)" : null)};
-    width: ${props => (props.open ? "7px" : null)};
+    left: ${props => (props.open ? "calc(50% - 2.5px)" : null)};
+    width: ${props => (props.open ? "5px" : null)};
     height: ${props => (props.open ? "100%" : null)};
     transform-origin: left center;
   }
@@ -353,8 +353,10 @@ class Mobilemenu extends React.Component {
                           </ul>
                         )}
                       </li>
+
                     )
                   )}
+                  <li><a href="https://www.prescriptive.solutions">Go to Prescriptive Solutions</a></li>
                 </ul>
               </div>
             </MenuWrapper>

@@ -115,13 +115,13 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/favicon.png`, // This path is relative to the root of the site.
+        icon: `src/images/whitegear.png`, // This path is relative to the root of the site.
       },
     },
     {
       resolve: `gatsby-plugin-favicon`,
       options: {
-        logo: "./src/images/favicon.png",
+        logo: "./src/images/whitegear.png",
 
         // WebApp Manifest Configuration
         appName: null, // Inferred with your package.json

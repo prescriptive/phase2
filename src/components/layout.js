@@ -12,7 +12,7 @@ const Layout = ({ children, slug }) => {
   }
 
   return (
-    <div id={pageId}>
+    <div id={pageId} className="page-container">
       <Header />
       <main>{children}</main>
       <Footer />

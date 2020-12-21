@@ -1,12 +1,24 @@
 * {
   box-sizing: border-box;
   // transition: 0.3s;
-  color: $darkGray;
+  // color: $offWhite;
 }
 body {
   margin: 0px;
   font-family: "Roboto";
   font-weight: 400;
+}
+.page-container{
+  background: linear-gradient(109.72deg, #97231C -0.79%, #E3482E 61.79%, #F46036 89.09%);
+  color: $offWhite;
+  color: $offWhite;
+}
+#home.page-container{
+background:transparent;
+color: $darkGray;
+p{
+  color: $darkGray;
+}
 }
 h1 {
   font-family: "Libre Franklin";
@@ -46,7 +58,6 @@ a {
 
 p {
   font-size: 18px;
-  color: $darkGray;
   line-height: 24px;
   display: inline-block;
   width: 100%;
