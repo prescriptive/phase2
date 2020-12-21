@@ -46,6 +46,9 @@ const HeaderStyle = styled.header`
   .logo {
     max-width: 293px;
     width: 293px;
+    .gatsby-image-wrapper{
+      padding:0px 1px;
+    }
     img {
       max-width: 100%;
     }
