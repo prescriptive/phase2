@@ -5,6 +5,7 @@ import { RichText } from "prismic-reactjs"
 import * as variable from "../variables"
 import linkResolver from "../../utils/linkResolver"
 import prismicHtmlSerializer from "../../gatsby/htmlSerializer"
+import Container from "../container"
 
 const LeftRightStyle = styled.div`
   ._form {
@@ -23,7 +24,7 @@ const LeftRightStyle = styled.div`
     }
     @media (max-width: ${variable.mobileWidth}) {
       max-width: ${variable.mobileWidth};
-      padding: 0px 15px;
+      padding: 0px 5%;
     }
   }
   section {
@@ -33,25 +34,43 @@ const LeftRightStyle = styled.div`
     align-items: center;
     &:nth-child(1) {
       justify-content: flex-end;
+      @media (max-width: ${variable.mobileWidth}) {
+        justify-content: center;
+      }
+      > div {
+        padding-right:10px;
+        @media (max-width: ${variable.mobileWidth}) {
+        padding-right:0px;
+      }
+      }
     }
     &:nth-child(2) {
       justify-content: flex-start;
+      @media (max-width: ${variable.mobileWidth}) {
+        justify-content: center;
+      }
+      > div {
+        padding-left:10px;
+        @media (max-width: ${variable.mobileWidth}) {
+        padding-left:0px;
+      }
+      }
     }
     @media (max-width: ${variable.mobileWidth}) {
       width: 100%;
     }
     > div {
-      max-width: calc(${variable.desktopWidth} / 2);
+      max-width: calc(${variable.desktopWidth} / 2 - 20%);
       display: block;
-      padding: 0px 20px;
+      /* padding: 0px 0px; */
       margin: 0;
       width: 100%;
       @media (max-width: ${variable.tabletWidth}) {
-        max-width: calc(${variable.tabletWidth} / 2);
+        max-width: calc(${variable.tabletWidth} / 2 - 20%);
       }
 
       @media (max-width: ${variable.mobileWidth}) {
-        max-width: calc(${variable.mobileWidth} / 1);
+        max-width: calc(${variable.mobileWidth} / 1 - 10%);
       }
     }
   }
@@ -238,10 +257,12 @@ export const LeftRightSlice = ({ slice }) => {
   }
   return (
     <LeftRightStyle>
-      <div className="left-right-container">
+      <Container>
         {slice.primary.section_title.text && (
           <h2>{slice.primary.section_title.text}</h2>
         )}
+        </Container>
+      <div className="left-right-container">
         {returnLeft(slice.primary, leftWidth)}
         {returnRight(slice.primary, rightWidth)}
       </div>
