@@ -257,11 +257,9 @@ export const LeftRightSlice = ({ slice }) => {
   }
   return (
     <LeftRightStyle>
-      <Container>
         {slice.primary.section_title.text && (
           <h2>{slice.primary.section_title.text}</h2>
         )}
-        </Container>
       <div className="left-right-container">
         {returnLeft(slice.primary, leftWidth)}
         {returnRight(slice.primary, rightWidth)}

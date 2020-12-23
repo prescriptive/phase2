@@ -4,6 +4,7 @@ import Container from "../container"
 import "../scss/blocks/globalContact.scss"
 import "../scss/blocks/dirContact.scss"
 import "../scss/blocks/podSubscribe.scss"
+import "../scss/blocks/globalApply.scss"
 import loadable from '@loadable/component'
 // import BasicSectionSlice from "../slices/BasicSectionSlice"
 // import LeftRightSlice from "../slices/LeftRightSlice"

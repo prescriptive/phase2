@@ -26,7 +26,7 @@ export const FaqSlice = ({ slice }) => {
   return (
     <FaqStyle>
           <Container className="faq-slice-container">
-          <Accordion allowMultipleExpanded>
+          <Accordion allowMultipleExpanded allowZeroExpanded>
           {slice.items.map((qa, index) => (
 
 
