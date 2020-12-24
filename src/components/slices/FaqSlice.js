@@ -20,6 +20,7 @@ const FaqStyle = styled.div`
   padding:20px 0px;
   font-size:27px;
   font-weight:bold;
+  cursor:pointer;
   &:focus{
     border:0px;
     outline:none;
