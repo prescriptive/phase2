@@ -35,9 +35,28 @@ const linkResolver = (doc, content, linkClass) => {
   )
 }
 
+function toggleVideo() {
+  var y = document.getElementsByClassName('youtube-open');
+  var aNode = y[0];
+  aNode.click();
+}
+
 const htmlSerializer = (type, element, content, children) => {
   var link = ''
+
   switch (type) {
+    case "label":
+      if(element.data.label){
+        if(element.data.label == "youtube-popup"){
+          return(
+            <span className="youtube-popup"
+            onClick={() => toggleVideo()}
+            >
+              {content}
+            </span>
+          )
+        }
+      }
     case "hyperlink": 
       if (element.data.name) {
         if (element.data.name.includes(".mp3")) {
