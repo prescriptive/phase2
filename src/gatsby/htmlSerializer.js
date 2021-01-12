@@ -2,8 +2,6 @@ import React from "react"
 import AudioFile from "../components/tokens/audioFile"
 import { Link } from "gatsby"
 
-
-
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
   if (doc.type === "blog_post") {
@@ -36,28 +34,38 @@ const linkResolver = (doc, content, linkClass) => {
 }
 
 function toggleVideo() {
-  var y = document.getElementsByClassName('youtube-open');
-  var aNode = y[0];
-  aNode.click();
+  var y = document.getElementsByClassName("youtube-open")
+  var aNode = y[0]
+  aNode.click()
+}
+function toggleTypeForm() {
+  var y = document.getElementsByClassName("typeform-share")
+  var aNode = y[0]
+  aNode.click()
 }
 
 const htmlSerializer = (type, element, content, children) => {
-  var link = ''
+  var link = ""
 
   switch (type) {
     case "label":
-      if(element.data.label){
-        if(element.data.label == "youtube-popup"){
-          return(
-            <span className="youtube-popup"
-            onClick={() => toggleVideo()}
-            >
+      if (element.data.label) {
+        if (element.data.label == "youtube-popup") {
+          return (
+            <span className="youtube-popup" onClick={() => toggleVideo()}>
+              {content}
+            </span>
+          )
+        }
+        if (element.data.label == "typeform-cta") {
+          return (
+            <span className="typeform-cta" onClick={() => toggleTypeForm()}>
               {content}
             </span>
           )
         }
       }
-    case "hyperlink": 
+    case "hyperlink":
       if (element.data.name) {
         if (element.data.name.includes(".mp3")) {
           // File type is .mp3
@@ -75,19 +83,18 @@ const htmlSerializer = (type, element, content, children) => {
         link = linkResolver(element.data, content, linkClass)
       }
       return link
-    case "image": 
-      const width =  element.dimensions.width ? element.dimensions.width : ""
-      const height =  element.dimensions.height ? element.dimensions.height : ""
-      const alt =  element.alt ? element.alt : ""
-      if(element.url){
+    case "image":
+      const width = element.dimensions.width ? element.dimensions.width : ""
+      const height = element.dimensions.height ? element.dimensions.height : ""
+      const alt = element.alt ? element.alt : ""
+      if (element.url) {
         return (
           <p className="block-img">
-          <img src={element.url} width={width} height={height} alt={alt} />
+            <img src={element.url} width={width} height={height} alt={alt} />
           </p>
         )
-      }
-      else{
-        return ''
+      } else {
+        return ""
       }
     // First differentiate between a label and a preformatted field (e.g. the Code Block slice)
     default: {

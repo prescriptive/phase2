@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import * as variable from "../components/variables"
@@ -9,6 +9,7 @@ import "../components/scss/page/phase2new.scss"
 import "../components/scss/page/faq.scss"
 import SEO from "../components/seo"
 import { ReactTypeformEmbed } from "react-typeform-embed"
+import Helmet from "react-helmet"
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
 // import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
@@ -17,8 +18,8 @@ import { ReactTypeformEmbed } from "react-typeform-embed"
 // import HeroSlice from "../components/slices/HeroSlice"
 // import BlockReferenceSlice from "../components/slices/BlockReferenceSlice"
 import loadable from "@loadable/component"
-import '../../node_modules/react-modal-video/scss/modal-video.scss';
-import ModalVideo from 'react-modal-video'
+import "../../node_modules/react-modal-video/scss/modal-video.scss"
+import ModalVideo from "react-modal-video"
 // Sort and display the different slice options
 const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
   return slices.map((slice, index) => {
@@ -58,19 +59,19 @@ const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
               {<HeroSlice slice={slice} />}
             </div>
           )
-          case "faq":
-            const FaqSlice = loadable(() =>
-              import(`../components/slices/FaqSlice`)
-            )
-            return (
-              <div
-                id={"slice-id-" + sliceID}
-                key={index}
-                className="slice-wrapper slice-faq"
-              >
-                {<FaqSlice slice={slice} />}
-              </div>
-            )
+        case "faq":
+          const FaqSlice = loadable(() =>
+            import(`../components/slices/FaqSlice`)
+          )
+          return (
+            <div
+              id={"slice-id-" + sliceID}
+              key={index}
+              className="slice-wrapper slice-faq"
+            >
+              {<FaqSlice slice={slice} />}
+            </div>
+          )
         case "block_reference":
           const BlockReferenceSlice = loadable(() =>
             import(`../components/slices/BlockReferenceSlice`)
@@ -173,29 +174,41 @@ const Page = ({ data }) => {
   const [isOpen, setOpen] = useState(false)
   console.log(node.data)
   return (
-    <Layout slug={node.uid}>
-      <SEO site={site} page={node} />
-      <PageStyle style={{ minHeight: "800px" }}>
-        {node.data.body && (
-          <PostSlices
-            slices={node.data.body}
-            job={job}
-            leadership={leadership}
-            podcast={podcast}
-            podinfo={podinfo}
-            blog={blog}
-          />
-        )}
-        {node.data.youtube_popup_id.text &&(
-                <React.Fragment>
-                <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={node.data.youtube_popup_id.text} onClose={() => setOpen(false)} />
-                <button style={{display: 'none'}} className="youtube-open" onClick={()=> setOpen(true)}>Open Video</button>
+    <React.Fragment>
+      <Layout slug={node.uid}>
+        <SEO site={site} page={node} />
+        <PageStyle style={{ minHeight: "800px" }}>
+          {node.data.body && (
+            <PostSlices
+              slices={node.data.body}
+              job={job}
+              leadership={leadership}
+              podcast={podcast}
+              podinfo={podinfo}
+              blog={blog}
+            />
+          )}
+          {node.data.youtube_popup_id.text && (
+            <React.Fragment>
+              <ModalVideo
+                channel="youtube"
+                autoplay
+                isOpen={isOpen}
+                videoId={node.data.youtube_popup_id.text}
+                onClose={() => setOpen(false)}
+              />
+              <button
+                style={{ display: "none" }}
+                className="youtube-open"
+                onClick={() => setOpen(true)}
+              >
+                Open Video
+              </button>
             </React.Fragment>
-        )}
-
-
-      </PageStyle>
-    </Layout>
+          )}
+        </PageStyle>
+      </Layout>
+    </React.Fragment>
   )
 }
 export default Page
