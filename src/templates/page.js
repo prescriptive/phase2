@@ -160,6 +160,9 @@ const PageStyle = styled.div`
   section {
     padding: ${variable.sectionPadding} 0px;
   }
+  .modal-video-body {
+    max-width: 90%;
+  }
 `
 const Page = ({ data }) => {
   //   const prismicContent = data.page.allPas.edges[0]
