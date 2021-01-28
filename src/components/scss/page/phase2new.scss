@@ -1,9 +1,9 @@
 #home {
-  header{
+  header {
     position: absolute;
     width: 100%;
-    z-index:9;
-    background:transparent;
+    z-index: 9;
+    background: transparent;
   }
 }
 #welcome-to-phase-2-new {
@@ -80,13 +80,17 @@
   }
 }
 #slice-id-phase-2-gear {
-  background: linear-gradient(
-    119.79deg,
-    #97231c 0%,
-    #d0482c 67.37%,
-    #f46036 118.87%
-  );
-  border-bottom-right-radius: 100%;
+  // background: linear-gradient(
+  //   119.79deg,
+  //   #97231c 0%,
+  //   #d0482c 67.37%,
+  //   #f46036 118.87%
+  // );
+  // border-bottom-right-radius: 100%;
+  background-image: url(../../../images/gearnewcrop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 15px;
   section {
     min-height: 750px;
     display: flex;
@@ -94,6 +98,7 @@
     padding: 0px;
     h2 {
       color: white;
+      font-size: 54px;
     }
     p {
       color: white !important;
@@ -105,18 +110,20 @@
       background-attachment: fixed;
       background-repeat: no-repeat;
     }
-    .basic-slice-container{
-      width:100%;
+    .basic-slice-container {
+      width: 100%;
       display: flex;
-    justify-content: flex-start;
+      justify-content: flex-start;
     }
     .section-content {
       max-width: 550px;
+      margin-top: 80px;
       h2 {
         font-weight: 800;
         font-size: 54px;
         line-height: 72px;
         margin: 0px;
+        color: white;
       }
       p {
         font-size: 27px;
@@ -137,14 +144,14 @@
   padding: 60px 0px;
   .left-right-container {
     // max-width: 1240px;
+    position: relative;
   }
   section {
     padding: 0px;
     &:nth-child(1) {
       width: 100%;
       max-width: 1240px;
-      padding:0px 10%;
-      margin: 0 auto;
+      margin: auto 10%;
       @include mobile() {
         width: 100%;
         max-width: 100%;
@@ -169,6 +176,11 @@
       justify-content: flex-end;
       max-width: 0%;
       width: 0%;
+      position: absolute;
+      top: -350px;
+      width: 620px;
+      right: -50px;
+      max-width: unset;
       @include mobile() {
         width: 100%;
         max-width: 100%;
@@ -181,21 +193,21 @@
         p {
           margin: 0px;
         }
-        .block-img {
-          position: relative;
-          img {
-            position: absolute;
-            top: -400px;
-            width: 500px;
-            right: -100px;
-            max-width: unset;
-          }
-        }
+        // .block-img {
+        //   position: relative;
+        //   img {
+        //     position: absolute;
+        //     top: -400px;
+        //     width: 500px;
+        //     right: -100px;
+        //     max-width: unset;
+        //   }
+        // }
       }
     }
   }
   h2 {
-    color: $red;
+    color: $trueBlue;
     font-weight: 800;
     font-size: 54px;
     line-height: 72px;
@@ -298,14 +310,25 @@
   }
 }
 
-#home #slice-id-global-apply{
-  background-image: url(../../../images/logo-gear-right.png),
-  linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
-}
+// #home #slice-id-global-apply {
+//   background-image: url(../../../images/logo-gear-right.png),
+//     linear-gradient(
+//       89.96deg,
+//       rgba(0, 53, 82, 0.97) 34.07%,
+//       rgba(0, 53, 82, 0.49) 241.7%
+//     );
+//   h2 {
+//     color: white;
+//   }
+// }
 
 #slice-id-phase-2-bottom {
   background-image: url(../../../images/logo-gear-right.png),
-    linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
+    linear-gradient(
+      89.96deg,
+      rgba(0, 53, 82, 0.97) 34.07%,
+      rgba(0, 53, 82, 0.49) 241.7%
+    );
   background-size: 50%, 100%;
   // background-position: right bottom;
   background-position: left 100%;
@@ -326,7 +349,7 @@
   //   }
   // }
   h2 {
-    color: white;
+    color: white !important;
     font-weight: 800;
     font-size: 54px;
     line-height: 72px;
@@ -357,7 +380,7 @@
   }
 }
 #slice-id-phase2-bottom-footer {
-  background-color: rgb(60, 62, 70);
+  background-color: $trueBlue;
   height: 73px;
   section {
     padding: 0px;

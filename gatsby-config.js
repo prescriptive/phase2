@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify-cache`,
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {

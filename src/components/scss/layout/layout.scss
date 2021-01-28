@@ -8,17 +8,25 @@ body {
   font-family: "Roboto";
   font-weight: 400;
 }
-.page-container{
-  background: linear-gradient(109.72deg, #97231C -0.79%, #E3482E 61.79%, #F46036 89.09%);
+.page-container {
+  background: linear-gradient(
+    109.72deg,
+    #97231c -0.79%,
+    #e3482e 61.79%,
+    #f46036 89.09%
+  );
   color: $offWhite;
   color: $offWhite;
 }
-#home.page-container{
-background:transparent;
-color: $darkGray;
-p{
+#home.page-container {
+  background: transparent;
   color: $darkGray;
-}
+  p {
+    color: $darkGray;
+  }
+  h2 {
+    color: $trueBlue;
+  }
 }
 h1 {
   font-family: "Libre Franklin";
@@ -37,6 +45,7 @@ h2 {
   line-height: 48px;
   display: inline-block;
   margin: 25px 0px 25px 0px;
+
   .h2-light {
     font-family: "Roboto";
     font-weight: 500;
@@ -97,18 +106,23 @@ img {
   padding: 20px 35px;
   border-radius: 6px;
   color: #d23026;
-  display:block;
+  display: block;
   font-size: 24px;
   line-height: 32px;
 }
 .youtube-popup {
   cursor: pointer;
-  background-color: white;
-  padding: 20px 80px 20px 20px;  
-  border-radius: 6px;
-  color: #d23026;
-  background-image:url(../../../images/camera-red.png);
-  background-size:40px;
-  background-position: right 20px center;
-  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 10px 25px 10px 25px;
+  border-radius: 50px;
+  color: white;
+  // background-image:url(../../../images/camera-red.png);
+  // background-size:40px;
+  // background-position: right 20px center;
+  // background-repeat: no-repeat;
+  &:hover {
+    background-color: white;
+    color: $red;
+  }
 }
