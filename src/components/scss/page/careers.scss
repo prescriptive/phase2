@@ -3,6 +3,9 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right 65px top 586px;
+  @media (max-width: 768px) {
+    background: none;
+  }
 }
 #slice-id-current-op-hero-top {
   .section-content {
