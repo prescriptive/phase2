@@ -65,8 +65,27 @@
     border-radius: 50px;
     border: 1px solid white;
     color: white;
-    display: block;
+    display: inline-block;
     font-size: 24px;
     line-height: 32px;
+  }
+  .column {
+    @include mobile() {
+      flex-direction: column;
+    }
+  }
+  .column-item {
+    padding: 40px 0px;
+    @include mobile() {
+      width: 100% !important;
+    }
+    &:last-child {
+      p {
+        &:nth-child(2) {
+          margin-top: 60px;
+          text-align: right;
+        }
+      }
+    }
   }
 }

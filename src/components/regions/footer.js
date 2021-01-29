@@ -5,7 +5,7 @@ import * as variable from "../variables"
 
 const FooterStyle = styled.footer`
   padding: 24px 0px;
-  background-color: ${variable.darkGray};
+  background-color: ${variable.trueBlue};
   text-align: center;
   color: white;
   div {
