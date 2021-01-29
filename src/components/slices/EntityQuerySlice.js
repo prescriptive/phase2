@@ -91,10 +91,7 @@ const EntityResult = ({ slice, job }) => {
   // ))}
 }
 
-export const EntityQuerySlice = ({
-  slice,
-  job,
-}) => {
+export const EntityQuerySlice = ({ slice, job }) => {
   var fluid = null
 
   var h1_title = false
@@ -106,7 +103,6 @@ export const EntityQuerySlice = ({
   var entity = null
 
   var entityType = null
-
 
   if (slice.primary.background_imageSharp != null) {
     fluid = slice.primary.background_image.localFile.childImageSharp.fluid
@@ -133,8 +129,8 @@ export const EntityQuerySlice = ({
     var theh2Title = slice.primary.section_title[0].text
   }
   var theh2 = null
-  if(slice.primary.section_title){
-    if(slice.primary.section_title.text !== ''){
+  if (slice.primary.section_title) {
+    if (slice.primary.section_title.text !== "") {
       theh2 = slice.primary.section_title.text
     }
   }
@@ -172,10 +168,7 @@ export const EntityQuerySlice = ({
               {/* {console.log(theh2)} */}
               {theh2 && <h2>{slice.primary.section_title.text}</h2>}
               <EntityQueryStyle>
-                <EntityResult
-                  slice={slice}
-                  job={job}
-                />
+                <EntityResult slice={slice} job={job} />
               </EntityQueryStyle>
             </section>
           </Container>

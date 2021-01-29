@@ -6,14 +6,19 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import * as variable from "../variables"
 import MobileMenu from "../mobileMenu"
+import headerImage from "../../images/gearnewcrop.png"
 
 const HeaderStyle = styled.header`
-/* position: absolute;
+  /* position: absolute;
     width: 100%;
     z-index:9; */
-    background-image:linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
-  .the-header-container{
-    position:relative;
+  // background-image:linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
+  background-image: url(${headerImage});
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 15px;
+  .the-header-container {
+    position: relative;
   }
   .header-social-container {
     background-color: ${variable.darkGray};
@@ -39,24 +44,24 @@ const HeaderStyle = styled.header`
     padding-top: 0px;
     padding-bottom: 24px;
     @media (max-width: ${variable.mobileWidth}) {
-      padding-top:30px;
-      padding-bottom:30px;
+      padding-top: 30px;
+      padding-bottom: 30px;
     }
   }
   .logo {
     max-width: 293px;
     width: 293px;
-    .gatsby-image-wrapper{
-      padding:0px 1px;
+    .gatsby-image-wrapper {
+      padding: 0px 1px;
     }
     img {
       max-width: 100%;
     }
   }
-  .back-to-pre{
-    width:100%;
-    display:flex;
-    justify-content:flex-end;
+  .back-to-pre {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     /* position:absolute;
     padding-left: inherit;
     padding-right: inherit;
@@ -64,14 +69,14 @@ const HeaderStyle = styled.header`
     left: 0;
     right: 0; */
     @media (max-width: ${variable.mobileWidth}) {
-      display:none;
+      display: none;
     }
-    a{
-      background-color: #EA7662;
+    a {
+      background-color: #ea7662;
       color: ${variable.offWhite};
-      display:block;
+      display: block;
       border-radius: 0px 0px 6px 6px;
-      padding:5px 15px;
+      padding: 5px 15px;
     }
   }
 
@@ -89,8 +94,8 @@ const HeaderStyle = styled.header`
       list-style: none;
       margin-right: 50px;
       position: relative;
-      &:last-child{
-        margin-right:0px;
+      &:last-child {
+        margin-right: 0px;
       }
       a {
         text-decoration: none;
@@ -98,13 +103,13 @@ const HeaderStyle = styled.header`
         font-size: 18px;
         font-weight: 400;
         padding: 20px 0px;
-        position:relative;
-        top:6px;
+        position: relative;
+        top: 6px;
         &:hover {
-          text-decoration:underline;
+          text-decoration: underline;
         }
         &[aria-current] {
-          text-decoration:underline;
+          text-decoration: underline;
         }
       }
       .sub-menu {
@@ -150,7 +155,7 @@ const HeaderStyle = styled.header`
   }
 `
 const activeStyle = {
-  textDecoration:'underline',
+  textDecoration: "underline",
 }
 
 function menuRender(menuitem) {
@@ -277,17 +282,21 @@ export const Header = () => {
   return (
     <HeaderStyle className="header">
       <Container className="the-header-container">
-        <div class="back-to-pre"><a href="https://www.prescriptive.solutions">Go to Prescriptive Solutions</a></div>
+        <div class="back-to-pre">
+          <a href="https://www.prescriptive.solutions">
+            Go to Prescriptive Solutions
+          </a>
+        </div>
         <div className="header-container">
-        <Link className="logo" to="/">
-          <Img fluid={logo} alt="logo" />
-        </Link>
-        <div className="mobile-menu-container">{<MobileMenu />}</div>
-        <ul className="main-menu">
-          {nav.map((menuitem, index) => (
-            <li key={index}>{menuRender(menuitem)}</li>
-          ))}
-        </ul>
+          <Link className="logo" to="/">
+            <Img fluid={logo} alt="logo" />
+          </Link>
+          <div className="mobile-menu-container">{<MobileMenu />}</div>
+          <ul className="main-menu">
+            {nav.map((menuitem, index) => (
+              <li key={index}>{menuRender(menuitem)}</li>
+            ))}
+          </ul>
         </div>
       </Container>
     </HeaderStyle>

@@ -1,60 +1,71 @@
 {
-  "Main" : {
-    "title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "heading1",
-        "label" : "Title"
+  "Main": {
+    "title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Title"
       }
     },
-    "uid" : {
-      "type" : "UID",
-      "config" : {
-        "label" : "uid"
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "uid"
       }
     },
-    "location" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph",
-        "label" : "Location"
+    "location": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Location"
       }
     },
-    "teaser_description" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-        "label" : "Teaser Description"
+    "travel": {
+      "type": "Select",
+      "config": {
+        "options": [
+          "No Travel Required",
+          "Travel to Houston Required"
+        ],
+        "default_value": "No Travel Required",
+        "label": "Travel"
       }
     },
-    "description" : {
-      "type" : "StructuredText",
-      "config" : {
-        "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
-        "label" : "Description"
+    "teaser_description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Teaser Description"
+      }
+    },
+    "description": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, o-list-item",
+        "label": "Description"
       }
     }
   },
-  "SEO" : {
-    "meta_title" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph",
-        "label" : "Meta Title"
+  "SEO": {
+    "meta_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Meta Title"
       }
     },
-    "meta_description" : {
-      "type" : "StructuredText",
-      "config" : {
-        "single" : "paragraph",
-        "label" : "Meta Description"
+    "meta_description": {
+      "type": "StructuredText",
+      "config": {
+        "single": "paragraph",
+        "label": "Meta Description"
       }
     },
-    "do_not_index" : {
-      "type" : "Boolean",
-      "config" : {
-        "default_value" : false,
-        "label" : "Do Not Index"
+    "do_not_index": {
+      "type": "Boolean",
+      "config": {
+        "default_value": false,
+        "label": "Do Not Index"
       }
     }
   }

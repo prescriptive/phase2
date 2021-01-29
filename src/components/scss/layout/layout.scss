@@ -9,17 +9,17 @@ body {
   font-weight: 400;
 }
 .page-container {
-  background: linear-gradient(
-    109.72deg,
-    #97231c -0.79%,
-    #e3482e 61.79%,
-    #f46036 89.09%
-  );
-  color: $offWhite;
-  color: $offWhite;
+  // background: linear-gradient(
+  //   109.72deg,
+  //   #97231c -0.79%,
+  //   #e3482e 61.79%,
+  //   #f46036 89.09%
+  // );
+  // color: $offWhite;
+  // color: $offWhite;
 }
 #home.page-container {
-  background: transparent;
+  // background: transparent;
   color: $darkGray;
   p {
     color: $darkGray;
@@ -33,6 +33,7 @@ h1 {
   font-weight: 800;
   font-size: 54px;
   line-height: 72px;
+  color: $trueBlue;
   a {
     text-decoration: underline;
     display: block;

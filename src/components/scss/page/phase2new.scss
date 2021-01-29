@@ -1,9 +1,29 @@
 #home {
+  background-image: url(../../../images/planes.png);
+  background-repeat: no-repeat;
+  background-size: 617px;
+  background-position: right -70px top 490px;
+  @media (max-width: 1200px) {
+    background-position: right -250px top 490px;
+  }
+  @media (max-width: 1050px) {
+    background-position: right -350px top 490px;
+  }
+  @media (max-width: 960px) {
+    background-position: right -350px top 490px;
+    background-size: 517px;
+  }
+  @media (max-width: 830px) {
+    background: none;
+  }
   header {
     position: absolute;
     width: 100%;
     z-index: 9;
     background: transparent;
+  }
+  h2 {
+    margin-bottom: 0px;
   }
 }
 #welcome-to-phase-2-new {

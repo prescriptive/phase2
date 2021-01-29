@@ -228,6 +228,7 @@ export const postQuery = graphql`
           location {
             text
           }
+          travel
           teaser_description {
             html
           }

@@ -1,71 +1,94 @@
 import React from "react"
 import * as variable from "../../variables"
 import styled from "styled-components"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import { RichText } from "prismic-reactjs"
 import linkResolver from "../../../utils/linkResolver"
 import prismicHtmlSerializer from "../../../gatsby/htmlSerializer"
 
-var FA = require("react-fontawesome")
-
 const JobTeaserStyle = styled.article`
-  border-radius:4px;
-  background-color: white;
-  a{
-    display:block;
-    padding: 48px 24px;
-    position:relative;
-    &:hover{
-      box-shadow: 5px 5px 10px 7px ${variable.lightGray};
-    }
-  }
+  background: linear-gradient(180deg, #a9b9c2 0%, #c4ced4 100%);
+  padding: 35px;
   h2 {
-    margin-top: 0px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
     font-size: 27px;
-    line-height: 36px;
-    text-align: center;
+    line-height: 37px;
+    font-weight: 900;
+    border: 1px solid rgba(0, 53, 82, 0.65);
+    color: ${variable.trueBlue};
     width: 100%;
-    margin-bottom: 12px;
-    color:${variable.darkGray};
+    padding: 10px 20px;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
   }
-  .job-location {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
+  a {
+    color: ${variable.darkGray};
+  }
+  .location {
     font-size: 18px;
     line-height: 24px;
-    color: ${variable.red};
-    text-align: center;
-    p{
-      color: ${variable.red};
-    }
+    font-weight: 700;
   }
+  .travel {
+    margin-top: 5px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+  .jobteaser {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
   }
 `
 export const JobTeaser = ({ post }) => {
-  console.log(post)
+  const data = useStaticQuery(graphql`
+    query blogteaser {
+      usericon: file(relativePath: { eq: "user-gray.png" }) {
+        childImageSharp {
+          fixed(width: 20, height: 20) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+      calendaricon: file(relativePath: { eq: "calendar-gray.png" }) {
+        childImageSharp {
+          fixed(width: 20, height: 22) {
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          }
+        }
+      }
+    }
+  `)
+  const usericon = data.usericon.childImageSharp.fixed
+  const calendaricon = data.calendaricon.childImageSharp.fixed
   return (
     <JobTeaserStyle>
-      <Link to={"/current-opportunity/" + post.uid}>
-        <h2>{post.data.title.text}</h2>
-        <div className="job-location">
-{
-  /* <RichText
-render={post.node.location}
-linkResolver={linkResolver}
-htmlSerializer={prismicHtmlSerializer}
-/> */
-}
+      {/* <Link to={"/current-opportunity/" + post.uid}> */}
+      <h2>{post.data.title.text}</h2>
+      {post.data.location && (
+        <div className="location">
+          <Img fixed={calendaricon} style={{ marginRight: "10px" }} />
+          {post.data.location.text}
         </div>
-          <div
-                className="jobteaser"
-                dangerouslySetInnerHTML={{ __html: post.data.teaser_description.html }}
-              />
-      </Link>
+      )}
+      {post.data.travel && (
+        <div className="travel">
+          <Img fixed={usericon} style={{ marginRight: "10px" }} />
+          {post.data.travel}
+        </div>
+      )}
+      <div
+        className="jobteaser"
+        dangerouslySetInnerHTML={{
+          __html: post.data.teaser_description.html,
+        }}
+      />
+      {/* </Link> */}
     </JobTeaserStyle>
   )
 }
