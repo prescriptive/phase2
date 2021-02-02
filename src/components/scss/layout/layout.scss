@@ -7,6 +7,10 @@ body {
   margin: 0px;
   font-family: "Roboto";
   font-weight: 400;
+  color: $darkGray;
+  p {
+    color: $darkGray;
+  }
 }
 .page-container {
   // background: linear-gradient(
