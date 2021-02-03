@@ -69,11 +69,14 @@
   .column {
     @include mobile() {
       flex-direction: column;
+      margin-top: 40px;
     }
   }
   .column-item {
     padding: 40px 0px;
+    margin-bottom: 0px;
     @include mobile() {
+      padding: 0px 0px;
       width: 100% !important;
     }
     &:last-child {
