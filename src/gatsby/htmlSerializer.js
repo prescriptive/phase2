@@ -1,6 +1,7 @@
 import React from "react"
 import AudioFile from "../components/tokens/audioFile"
 import { Link } from "gatsby"
+import Video from "../components/video"
 
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
@@ -52,9 +53,10 @@ const htmlSerializer = (type, element, content, children) => {
       if (element.data.label) {
         if (element.data.label == "youtube-popup") {
           return (
-            <span className="youtube-popup" onClick={() => toggleVideo()}>
-              {content}
-            </span>
+            <Video className="youtube-popup">{content}</Video>
+            // <span className="youtube-popup" onClick={() => toggleVideo()}>
+            //   {content}
+            // </span>
           )
         }
         if (element.data.label == "typeform-cta") {

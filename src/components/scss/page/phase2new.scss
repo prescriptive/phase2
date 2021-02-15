@@ -111,6 +111,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 15px;
+  position: relative;
+  z-index: 99;
   section {
     min-height: 750px;
     display: flex;

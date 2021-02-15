@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import * as variable from "../components/variables"
@@ -10,6 +10,7 @@ import "../components/scss/page/faq.scss"
 import SEO from "../components/seo"
 import { ReactTypeformEmbed } from "react-typeform-embed"
 import Helmet from "react-helmet"
+import Video from "../components/video"
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
 // import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
@@ -17,6 +18,7 @@ import Helmet from "react-helmet"
 // import EntityQuerySlice from "../components/slices/EntityQuerySlice"
 // import HeroSlice from "../components/slices/HeroSlice"
 // import BlockReferenceSlice from "../components/slices/BlockReferenceSlice"
+
 import loadable from "@loadable/component"
 import "../../node_modules/react-modal-video/scss/modal-video.scss"
 import ModalVideo from "react-modal-video"
@@ -161,7 +163,7 @@ const PageStyle = styled.div`
     padding: ${variable.sectionPadding} 0px;
   }
   .modal-video-body {
-    max-width: 90%;
+    // max-width: 100%;
   }
 `
 const Page = ({ data }) => {
@@ -175,7 +177,7 @@ const Page = ({ data }) => {
   const podinfo = data.podinfo
   const blog = data.blog
   const [isOpen, setOpen] = useState(false)
-  console.log(node.data)
+
   return (
     <React.Fragment>
       <Layout slug={node.uid}>
@@ -191,14 +193,17 @@ const Page = ({ data }) => {
               blog={blog}
             />
           )}
-          {node.data.youtube_popup_id.text && (
+          {/* {node.data.youtube_popup_id.text && (
             <React.Fragment>
               <ModalVideo
                 channel="youtube"
                 autoplay
                 isOpen={isOpen}
+                allowFullScreen
                 videoId={node.data.youtube_popup_id.text}
                 onClose={() => setOpen(false)}
+                height={height}
+                width={width}
               />
               <button
                 style={{ display: "none" }}
@@ -208,7 +213,7 @@ const Page = ({ data }) => {
                 Open Video
               </button>
             </React.Fragment>
-          )}
+          )} */}
         </PageStyle>
       </Layout>
     </React.Fragment>
