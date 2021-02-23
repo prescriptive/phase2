@@ -3,7 +3,9 @@ import * as variable from "../components/variables"
 const Container = styled.div`
   max-width: ${variable.desktopWidth};
   display: block;
-  margin: auto 10%;
+  margin: 0 auto;
+  padding: 0px 10%;
+  box-sizing: content-box;
   @media (max-width: ${variable.tabletWidth}) {
     max-width: ${variable.tabletWidth};
   }
