@@ -273,7 +273,8 @@ export const Header = () => {
     }
   `)
   const nav = data.site.nodes[0].data.nav
-  const logo = data.site.nodes[0].data.logo.localFile.childImageSharp.fluid
+  console.log(data)
+  // const logo = data.site.nodes[0].data.logo.localFile.childImageSharp.fluid
   const twittericon = data.twittericon.childImageSharp.fixed
   var twitter = null
   if (data.site.nodes[0].data.twitter) {
@@ -289,7 +290,7 @@ export const Header = () => {
         </div>
         <div className="header-container">
           <Link className="logo" to="/">
-            <Img fluid={logo} alt="logo" />
+
           </Link>
           <div className="mobile-menu-container">{<MobileMenu />}</div>
           <ul className="main-menu">
