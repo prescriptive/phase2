@@ -16,7 +16,6 @@ const HeaderStyle = styled.header`
   background-image: url(${headerImage});
   background-repeat: no-repeat;
   background-size: cover;
-
   padding-bottom: 15px;
   .the-header-container {
     position: relative;
