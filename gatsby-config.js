@@ -35,7 +35,7 @@ module.exports = {
           // Return true to download the image or false to skip.
           return true
         },
-        linkResolver: ({ node, key, value }) => doc => {
+        linkResolver: ({ node, key, value }) => (doc) => {
           // Your link resolver
           if (doc.type === "blog_post") {
             return "/blog/" + doc.uid
@@ -112,6 +112,7 @@ module.exports = {
         icon: `src/images/whitegear.png`, // This path is relative to the root of the site.
       },
     },
+
     // {
     //   resolve: `gatsby-plugin-favicon`,
     //   options: {
@@ -219,21 +220,21 @@ module.exports = {
           allPrismicJob,
         }) => {
           let pages = []
-          allPrismicPa.nodes.map(edge => {
+          allPrismicPa.nodes.map((edge) => {
             pages.push({
               url: `${site.siteMetadata.siteUrl}/${edge.uid}`,
               changefreq: `daily`,
               priority: 0.7,
             })
           })
-          allPrismicBlogPost.nodes.map(edge => {
+          allPrismicBlogPost.nodes.map((edge) => {
             pages.push({
               url: `${site.siteMetadata.siteUrl}/insights/${edge.uid}`,
               changefreq: `daily`,
               priority: 0.7,
             })
           })
-          allPrismicJob.nodes.map(edge => {
+          allPrismicJob.nodes.map((edge) => {
             pages.push({
               url: `${site.siteMetadata.siteUrl}/job-opportunity/${edge.uid}`,
               changefreq: `daily`,
