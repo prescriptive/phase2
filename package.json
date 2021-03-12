@@ -16,12 +16,9 @@
     "@slixites/gatsby-plugin-google-fonts": "^1.1.1",
     "@wardpeet/gatsby-image-nextgen": "0.0.2",
     "babel-preset-gatsby": "^1.0.0",
-    "favicons-webpack-plugin": "^5.0.2",
     "gatsby": "^3.0.4",
-    "gatsby-awesome-pagination": "^0.3.6",
     "gatsby-background-image": "^1.4.1",
     "gatsby-image": "^3.0.0",
-    "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-tagmanager": "^3.0.0",
     "gatsby-plugin-loadable-components-ssr": "^2.1.0",
@@ -53,6 +50,7 @@
     "gatsby-v2-plugin-page-transitions": "^1.0.0",
     "graphql": "^15.5.0",
     "graphql-compose": "^7.25.0",
+    "html-webpack-plugin": "^5.3.1",
     "material-ui": "^0.20.2",
     "netlify-plugin-gatsby-cache": "^0.3.2",
     "node-sass": "^5.0.0",
@@ -111,5 +109,10 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
+  },
+  "resolutions": {
+    "graphql": "^15.4.0",
+    "graphql-compose": "^7.25.0",
+    "webpack": "^5.24.2"
   }
 }
