@@ -35,7 +35,7 @@ module.exports = {
           // Return true to download the image or false to skip.
           return true
         },
-        linkResolver: ({ node, key, value }) => doc => {
+        linkResolver: ({ node, key, value }) => (doc) => {
           // Your link resolver
           if (doc.type === "blog_post") {
             return "/blog/" + doc.uid
@@ -93,8 +93,10 @@ module.exports = {
     {
       resolve: "gatsby-plugin-sass",
       options: {
-        data: '@import "variables.scss"; @import "mixins.scss";',
-        includePaths: ["src/components/scss"],
+        sassOptions: {
+          data: `@import "./src/components/scss/variables.scss"; @import "./src/components/scss/mixins.scss";`,
+          includePaths: ["src/components/scss"],
+        },
       },
     },
     `gatsby-plugin-netlify-headers`,
@@ -110,36 +112,37 @@ module.exports = {
         icon: `src/images/whitegear.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-favicon`,
-      options: {
-        logo: "./src/images/whitegear.png",
 
-        // WebApp Manifest Configuration
-        appName: null, // Inferred with your package.json
-        appDescription: null,
-        developerName: null,
-        developerURL: null,
-        dir: "auto",
-        lang: "en-US",
-        background: "#fff",
-        theme_color: "#fff",
-        display: "standalone",
-        orientation: "any",
-        version: "1.0",
+    // {
+    //   resolve: `gatsby-plugin-favicon`,
+    //   options: {
+    //     logo: "./src/images/whitegear.png",
 
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: true,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          yandex: false,
-          windows: false,
-        },
-      },
-    },
+    //     // WebApp Manifest Configuration
+    //     appName: null, // Inferred with your package.json
+    //     appDescription: null,
+    //     developerName: null,
+    //     developerURL: null,
+    //     dir: "auto",
+    //     lang: "en-US",
+    //     background: "#fff",
+    //     theme_color: "#fff",
+    //     display: "standalone",
+    //     orientation: "any",
+    //     version: "1.0",
+
+    //     icons: {
+    //       android: true,
+    //       appleIcon: true,
+    //       appleStartup: true,
+    //       coast: false,
+    //       favicons: true,
+    //       firefox: true,
+    //       yandex: false,
+    //       windows: false,
+    //     },
+    //   },
+    // },
     // {
     //   resolve: `gatsby-plugin-google-tagmanager`,
     //   options: {
@@ -217,21 +220,21 @@ module.exports = {
           allPrismicJob,
         }) => {
           let pages = []
-          allPrismicPa.nodes.map(edge => {
+          allPrismicPa.nodes.map((edge) => {
             pages.push({
               url: `${site.siteMetadata.siteUrl}/${edge.uid}`,
               changefreq: `daily`,
               priority: 0.7,
             })
           })
-          allPrismicBlogPost.nodes.map(edge => {
+          allPrismicBlogPost.nodes.map((edge) => {
             pages.push({
               url: `${site.siteMetadata.siteUrl}/insights/${edge.uid}`,
               changefreq: `daily`,
               priority: 0.7,
             })
           })
-          allPrismicJob.nodes.map(edge => {
+          allPrismicJob.nodes.map((edge) => {
             pages.push({
               url: `${site.siteMetadata.siteUrl}/job-opportunity/${edge.uid}`,
               changefreq: `daily`,
@@ -249,6 +252,7 @@ module.exports = {
     //   },
     // },
     `gatsby-plugin-offline`,
-    "gatsby-plugin-netlify",
+    
+    // "gatsby-plugin-netlify",
   ],
 }

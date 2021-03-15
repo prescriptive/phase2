@@ -1,3 +1,5 @@
+@import "./src/components/scss/variables.scss";
+@import "./src/components/scss/mixins.scss";
 #slice-id-global-apply {
   background-image: url(../../../images/logo-gear-right.png),
     linear-gradient(89.96deg, #193b55 34.07%, #38596f 241.7%);
