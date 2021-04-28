@@ -49,6 +49,7 @@ module.exports = {
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
+        releaseID: `${process.env.PRISMIC_RELEASE_ID}`,
         schemas: {
           pa: require("./src/schemas/page.json"),
           blog_post: require("./src/schemas/blog_post.json"),
@@ -59,7 +60,7 @@ module.exports = {
           block: require("./src/schemas/block.json"),
           podcast: require("./src/schemas/podcast.json"),
         },
-        prismicToolbar: false,
+        prismicToolbar: true,
       },
     },
     {
@@ -252,7 +253,7 @@ module.exports = {
     //   },
     // },
     `gatsby-plugin-offline`,
-    
+
     // "gatsby-plugin-netlify",
   ],
 }
