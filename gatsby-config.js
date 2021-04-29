@@ -37,9 +37,6 @@ module.exports = {
         },
         linkResolver: ({ node, key, value }) => (doc) => {
           // Your link resolver
-          if (doc.type === "blog_post") {
-            return "/blog/" + doc.uid
-          }
           if (doc.type === "pa") {
             return "/" + doc.uid
           }
