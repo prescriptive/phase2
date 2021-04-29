@@ -4,22 +4,22 @@ import { graphql, useStaticQuery } from 'gatsby'
 import linkResolver from "../utils/linkResolver"
 
 const PreviewPage = ({ isPreview }) => {
-    if (isPreview === false) return 'Not a preview!'
+  if (isPreview === false) return 'Not a preview!'
 
-    return (<p>Loading</p>)
+  return (<p>Loading</p>)
 }
 
 export default (props) => {
-    const data = useStaticQuery(graphql`query {
+  const data = useStaticQuery(graphql`query {
     sitePlugin(name: {eq: "gatsby-source-prismic"}) {
       pluginOptions {
         repositoryName
       }
     }
   }`)
-    const { repositoryName } = data.sitePlugin.pluginOptions
-    return withPreviewResolver(PreviewPage, {
-        repositoryName,
-        linkResolver: () => linkResolver,
-    })(props)
+  const { repositoryName } = data.sitePlugin.pluginOptions
+  return withPreviewResolver(PreviewPage, {
+    repositoryName,
+    linkResolver: () => linkResolver,
+  })(props)
 }
