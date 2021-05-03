@@ -243,12 +243,12 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-plugin-google-tagmanager",
-      options: {
-        id: "GTM-MCJCSBW",
-      },
-    },
+    // {
+    //   resolve: "gatsby-plugin-google-tagmanager",
+    //   options: {
+    //     id: "GTM-MCJCSBW",
+    //   },
+    // },
     `gatsby-plugin-offline`,
 
     // "gatsby-plugin-netlify",
