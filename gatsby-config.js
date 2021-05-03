@@ -5,10 +5,10 @@ const linkResolver = require("./src/utils/linkResolver")
 
 module.exports = {
   siteMetadata: {
-    title: `Prescriptive Solutions`,
+    title: `Phase2 Prescriptive Solutions`,
     description: `Prescriptive Data Solutions helps our enterprise customers connect, secure, transform and scale through information technology consulting, solutions, integration, and managed services.`,
     author: `Digett`,
-    siteUrl: `https://www.prescriptive.solutions`,
+    siteUrl: `https://phase2.prescriptive.solutions`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -16,8 +16,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://www.prescriptive.solutions",
-        sitemap: "https://www.prescriptive.solutions/sitemap.xml",
+        host: "https://phase2.prescriptive.solutions",
+        sitemap: "https://phase2.prescriptive.solutions/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
