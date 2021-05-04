@@ -148,6 +148,10 @@
         line-height: 72px;
         margin: 0px;
         color: white;
+        @include mobile() {
+          font-size: 48px;
+          line-height: 58px;
+        }
       }
       p {
         font-size: 27px;
@@ -155,6 +159,12 @@
         font-family: Roboto;
         font-style: normal;
         font-weight: 500;
+      }
+      .view-video {
+        @include mobile() {
+          font-size: 23px;
+          line-height: 33px;
+        }
       }
     }
   }
