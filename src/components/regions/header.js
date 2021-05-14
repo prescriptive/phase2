@@ -289,13 +289,9 @@ export const Header = () => {
           </a>
         </div>
         <div className="header-container">
-          <a
-            className="logo"
-            target="_blank"
-            href="https://www.prescriptive.solutions/"
-          >
+          <Link className="logo" to="/">
             <Img fluid={logo} />
-          </a>
+          </Link>
           <div className="mobile-menu-container">{<MobileMenu />}</div>
           <ul className="main-menu">
             {nav.map((menuitem, index) => (
