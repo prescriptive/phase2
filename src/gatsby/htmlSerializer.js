@@ -2,7 +2,7 @@ import React from "react"
 import AudioFile from "../components/tokens/audioFile"
 import { Link } from "gatsby"
 import Video from "../components/video"
-
+import SignUp from "../components/signup"
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
   if (doc.type === "blog_post") {
@@ -65,6 +65,9 @@ const htmlSerializer = (type, element, content, children) => {
               {content}
             </span>
           )
+        }
+        if (element.data.label == "sign-up") {
+          return <SignUp></SignUp>
         }
       }
     case "hyperlink":
