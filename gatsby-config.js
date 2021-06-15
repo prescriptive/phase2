@@ -243,6 +243,13 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-load-script",
+      options: {
+        src: "https://prescriptivesolutions.activehosted.com/f/embed.php?id=9",
+        crossorigin: "anonymous",
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-google-tagmanager",
     //   options: {
