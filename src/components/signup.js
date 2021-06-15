@@ -146,6 +146,8 @@ class SignUp extends Component {
                 style={{
                   color: "#003552",
                   fontSize: "36px",
+                  width: "100%",
+                  textAlign: "left",
                 }}
               >
                 Sign up for the Phase 2 Newsletter
@@ -154,6 +156,8 @@ class SignUp extends Component {
                 style={{
                   fontSize: "27px",
                   lineHeight: "36px",
+                  width: "100%",
+                  textAlign: "left",
                 }}
               >
                 Get the Phase 2 newsletter delivered directly to your inbox
@@ -230,9 +234,6 @@ class SignUp extends Component {
                       </button>
                     </div>
                   </div>
-                  {this.state.submit && (
-                    <div class="submit-message">Success!</div>
-                  )}
                 </form>
               </div>
               <div
