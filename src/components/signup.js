@@ -138,7 +138,7 @@ class SignUp extends Component {
             </div>
             <div
               style={{
-                padding: "0px 20px 20px 20px",
+                padding: "0px 30px 30px 30px",
                 textAlign: "center",
               }}
             >
