@@ -160,9 +160,9 @@ class SignUp extends Component {
                   textAlign: "left",
                 }}
               >
-                Get the monthly Phase 2 newsletter delivered directly to your
-                inbox. Stay on top of the news in IT career industry trends and
-                Phase 2 Community opportunities.
+                Get the monthly Phase 2 newsletter delivered to your inbox. Stay
+                on top of the news in IT career trends and Phase 2 Community
+                opportunities.
               </div>
               <div className="newsletter-form">
                 <form onSubmit={this._handleSubmit}>

@@ -137,3 +137,10 @@ img {
     color: $red;
   }
 }
+
+#_form_9_submit {
+  @include mobile() {
+    font-size: 21px !important;
+    padding: 10px 15px !important;
+  }
+}
