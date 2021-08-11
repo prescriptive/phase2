@@ -8,7 +8,7 @@
 }
 .react-tabs__tab-list {
   position: absolute;
-  top: -60px;
+  top: -70px;
   z-index: 9;
   border: 0px !important;
 }
@@ -22,11 +22,13 @@
   border: 0px !important;
   font-size: 36px;
   color: $trueBlue;
-  padding: 10px !important;
-  font-family: "Libre Franklin";
+  padding: 15px !important;
+  font-family: "Libre Franklin" !important;
+  font-weight: 800;
 }
 .react-tabs__tab-panel {
   background-color: $lightGray !important;
   z-index: 10;
   position: relative;
+  padding-top: 40px;
 }
