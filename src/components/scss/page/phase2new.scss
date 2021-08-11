@@ -120,6 +120,18 @@
     display: flex;
     align-items: center;
     padding: 0px;
+    .column {
+      .column-item {
+        &:nth-child(1) {
+          max-width: calc(100% - 420px);
+          width: calc(100% - 420px);
+        }
+        &:nth-child(2) {
+          max-width: 380px;
+          width: 380px;
+        }
+      }
+    }
     h2 {
       color: white;
       font-size: 54px;
@@ -138,6 +150,24 @@
       width: 100%;
       display: flex;
       justify-content: flex-start;
+    }
+    h2 {
+      font-weight: 800;
+      font-size: 54px;
+      line-height: 72px;
+      margin: 0px;
+      color: white !important;
+      @include mobile() {
+        font-size: 48px;
+        line-height: 58px;
+      }
+    }
+    p {
+      font-size: 27px;
+      line-height: 36px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: 500;
     }
     .section-content {
       max-width: 550px;

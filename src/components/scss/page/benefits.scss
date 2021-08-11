@@ -4,10 +4,11 @@
   background-color: $lightGray;
   padding: 0px 0px 40px 0px;
   position: relative;
+  margin-top: 40px;
 }
 .react-tabs__tab-list {
   position: absolute;
-  top: -30px;
+  top: -60px;
   z-index: 9;
   border: 0px !important;
 }
@@ -17,8 +18,12 @@
 .react-tabs__tab {
   background-color: #f0f0f0;
   box-shadow: 5px 0 5px -2px rgba(0, 0, 0, 0.25);
-  margin-right: 10px;
+  margin-right: 15px;
   border: 0px !important;
+  font-size: 36px;
+  color: $trueBlue;
+  padding: 10px !important;
+  font-family: "Libre Franklin";
 }
 .react-tabs__tab-panel {
   background-color: $lightGray !important;
