@@ -1,0 +1,27 @@
+@import "./src/components/scss/variables.scss";
+@import "./src/components/scss/mixins.scss";
+.slice-tabs {
+  background-color: $lightGray;
+  padding: 0px 0px 40px 0px;
+  position: relative;
+}
+.react-tabs__tab-list {
+  position: absolute;
+  top: -30px;
+  z-index: 9;
+  border: 0px !important;
+}
+.react-tabs__tab--selected {
+  background-color: $lightGray !important;
+}
+.react-tabs__tab {
+  background-color: #f0f0f0;
+  box-shadow: 5px 0 5px -2px rgba(0, 0, 0, 0.25);
+  margin-right: 10px;
+  border: 0px !important;
+}
+.react-tabs__tab-panel {
+  background-color: $lightGray !important;
+  z-index: 10;
+  position: relative;
+}

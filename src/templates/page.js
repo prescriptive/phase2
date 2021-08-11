@@ -7,11 +7,12 @@ import "../components/scss/page/careers.scss"
 import "../components/scss/page/phase2.scss"
 import "../components/scss/page/phase2new.scss"
 import "../components/scss/page/faq.scss"
+import "../components/scss/page/benefits.scss"
 import SEO from "../components/seo"
 import { ReactTypeformEmbed } from "react-typeform-embed"
 import Helmet from "react-helmet"
 import Video from "../components/video"
-import { withPreview } from 'gatsby-source-prismic'
+import { withPreview } from "gatsby-source-prismic"
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
 // import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
@@ -48,7 +49,17 @@ const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
               {<BasicSectionSlice slice={slice} />}
             </div>
           )
-
+        case "tabs":
+          const TabsSlice = loadable(() => import(`../components/slices/Tabs`))
+          return (
+            <div
+              id={"slice-id-" + sliceID}
+              key={index}
+              className="slice-wrapper slice-tabs"
+            >
+              {<TabsSlice slice={slice} />}
+            </div>
+          )
         case "hero":
           const HeroSlice = loadable(() =>
             import(`../components/slices/HeroSlice`)
@@ -264,6 +275,18 @@ export const postQuery = graphql`
           text
         }
         body {
+          ... on PrismicPaBodyTabs {
+            id
+            slice_type
+            items {
+              tab_content {
+                raw
+              }
+              tab_title {
+                text
+              }
+            }
+          }
           ... on PrismicPaBodyBlockReference {
             id
             primary {
