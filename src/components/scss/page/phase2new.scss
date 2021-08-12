@@ -125,10 +125,19 @@
         &:nth-child(1) {
           max-width: calc(100% - 420px);
           width: calc(100% - 420px);
+          @include tablet() {
+            width: 100%;
+            max-width: 100%;
+            margin-top: 40px;
+          }
         }
         &:nth-child(2) {
           max-width: 380px;
           width: 380px;
+          @include tablet() {
+            width: 100%;
+            max-width: 100%;
+          }
         }
       }
     }

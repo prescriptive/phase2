@@ -1,19 +1,34 @@
 @import "./src/components/scss/variables.scss";
 @import "./src/components/scss/mixins.scss";
+#member-benefits {
+  .slice-basic {
+    .section-content {
+      max-width: 820px;
+    }
+  }
+}
 .slice-tabs {
   background-color: $lightGray;
   padding: 0px 0px 40px 0px;
   position: relative;
   margin-top: 40px;
+  @include tablet() {
+    padding-top: 40px;
+  }
 }
 .react-tabs__tab-list {
   position: absolute;
   top: -70px;
   z-index: 9;
   border: 0px !important;
-}
-.react-tabs__tab--selected {
-  background-color: $lightGray !important;
+  @include tablet() {
+    position: relative;
+    top: 0px;
+    border: thin solid gray !important;
+    border-radius: 10px;
+    display: flex;
+    box-shadow: none !important;
+  }
 }
 .react-tabs__tab {
   background-color: #f0f0f0;
@@ -25,10 +40,119 @@
   padding: 15px !important;
   font-family: "Libre Franklin" !important;
   font-weight: 800;
+  @include tablet() {
+    padding: 10px !important;
+    font-size: 26px;
+    width: calc(100% / 3);
+    margin: 0px !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    bottom: 0px !important;
+    text-align: center;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  @include mobile() {
+    font-size: 18px;
+  }
+  @include mobilesmall() {
+    font-size: 16px;
+  }
+}
+.react-tabs__tab--selected {
+  background-color: $lightGray !important;
+  @include tablet() {
+    padding: 10px !important;
+    font-size: 26px;
+    width: calc(100% / 3);
+    margin: 0px !important;
+    background-color: $trueBlue !important;
+    box-shadow: none !important;
+    color: white !important;
+    &:nth-child(1) {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    &:nth-child(2) {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
+    &:nth-child(3) {
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+  @include mobile() {
+    font-size: 18px;
+  }
+  @include mobilesmall() {
+    font-size: 16px;
+  }
 }
 .react-tabs__tab-panel {
   background-color: $lightGray !important;
   z-index: 10;
   position: relative;
   padding-top: 40px;
+}
+.react-tabs {
+  max-width: 820px;
+}
+#react-tabs-1 {
+  p {
+    &:nth-child(3) {
+      float: left;
+      width: calc(100% - 200px);
+      @include tablet() {
+        float: none;
+        width: 100%;
+      }
+    }
+    &:nth-child(4) {
+      float: right;
+      width: 200px;
+      position: relative;
+      @include tablet() {
+        float: none;
+        width: 100%;
+      }
+      .group {
+        width: 320px;
+        position: absolute;
+        left: 80px;
+        @include tablet() {
+          position: relative;
+          left: 0px;
+          width: auto;
+        }
+        strong {
+          color: $trueBlue;
+          font-size: 32px;
+          line-height: 40px;
+          font-weight: 500;
+          font-style: italic;
+          display: block;
+        }
+        em {
+          font-size: 18px;
+          line-height: 24px;
+          text-align: right;
+          font-weight: normal;
+          display: block;
+        }
+      }
+    }
+  }
+  h3 {
+    &:nth-child(5) {
+      clear: both;
+    }
+  }
 }
