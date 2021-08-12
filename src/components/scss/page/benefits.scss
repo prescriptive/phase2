@@ -12,9 +12,6 @@
   padding: 0px 0px 40px 0px;
   position: relative;
   margin-top: 40px;
-  @include tablet() {
-    padding-top: 40px;
-  }
 }
 .react-tabs__tab-list {
   position: absolute;
@@ -22,12 +19,11 @@
   z-index: 9;
   border: 0px !important;
   @include tablet() {
-    position: relative;
-    top: 0px;
     border: thin solid gray !important;
     border-radius: 10px;
     display: flex;
     box-shadow: none !important;
+    width: 100%;
   }
 }
 .react-tabs__tab {
@@ -104,6 +100,7 @@
 }
 .react-tabs {
   max-width: 820px;
+  position: relative;
 }
 .react-tabs__tab-panel:nth-child(2) {
   p {
