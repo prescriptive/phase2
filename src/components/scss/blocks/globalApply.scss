@@ -25,6 +25,12 @@
   //     max-width: 800px;
   //   }
   // }
+  .column-item {
+    width: calc(100% / 2 - 35px) !important;
+    @include mobile() {
+      width: calc(100%) !important;
+    }
+  }
   h2 {
     color: white;
     font-weight: 800;

@@ -7,6 +7,14 @@
     }
   }
 }
+#slice-id-benefits-top {
+  h1 {
+    margin: 0px 0px 20px 0px;
+    font-weight: 800;
+    font-size: 54px;
+    line-height: 72px;
+  }
+}
 .slice-tabs {
   background-color: $lightGray;
   padding: 0px 0px 40px 0px;
@@ -37,6 +45,12 @@
   font-family: "Libre Franklin" !important;
   font-weight: 800;
   transition: box-shadow 0.3s ease-in-out;
+  &:nth-child(2) {
+    @include tablet() {
+      border-left: thin solid $trueBlue !important;
+      border-right: thin solid $trueBlue !important;
+    }
+  }
   &:hover {
     box-shadow: 10px 0 10px -2px rgba(0, 0, 0, 0.25);
   }
