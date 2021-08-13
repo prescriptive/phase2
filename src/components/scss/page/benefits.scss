@@ -36,6 +36,10 @@
   padding: 15px !important;
   font-family: "Libre Franklin" !important;
   font-weight: 800;
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 10px 0 10px -2px rgba(0, 0, 0, 0.25);
+  }
   @include tablet() {
     padding: 10px !important;
     font-size: 26px;
