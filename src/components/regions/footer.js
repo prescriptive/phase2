@@ -20,12 +20,13 @@ export const Footer = () => {
       <Container className="footer-container">
         <div>&copy; {new Date().getFullYear()} Prescriptive Data Solutions</div>
         <div>
-          <Link
+          <a
             style={{ color: "white", marginTop: "10px", display: "block" }}
-            to="privacy-policy"
+            href="https://www.prescriptive.solutions/prescriptive-data-solutions-llc-privacy-policy"
+            target="_blank"
           >
             Privacy Policy
-          </Link>
+          </a>
         </div>
       </Container>
     </FooterStyle>
