@@ -200,7 +200,9 @@ const Page = ({ data }) => {
   const blog = data.blog
   const [isOpen, setOpen] = useState(false)
   // something like: ?x=123&foo=bar in the URL
-  const [tab, setTab] = useQueryParam("tab", NumberParam)
+  var [tab, setTab] = useQueryParam("tab", NumberParam)
+  tab = tab - 1
+  console.log(tab)
   return (
     <React.Fragment>
       <Layout slug={node.uid}>
