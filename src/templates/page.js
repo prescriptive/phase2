@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react"
+import React, { Component, useEffect, useState } from "react"
+
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import * as variable from "../components/variables"
@@ -13,6 +14,7 @@ import { ReactTypeformEmbed } from "react-typeform-embed"
 import Helmet from "react-helmet"
 import Video from "../components/video"
 import { withPreview } from "gatsby-source-prismic"
+import { useQueryParam, NumberParam, StringParam } from "use-query-params"
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
 // import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
@@ -25,7 +27,15 @@ import loadable from "@loadable/component"
 import "../../node_modules/react-modal-video/scss/modal-video.scss"
 import ModalVideo from "react-modal-video"
 // Sort and display the different slice options
-const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
+const PostSlices = ({
+  slices,
+  blog,
+  leadership,
+  job,
+  podcast,
+  podinfo,
+  tab,
+}) => {
   return slices.map((slice, index) => {
     var sliceID = ""
     if (slice.primary) {
@@ -33,7 +43,7 @@ const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
         var sliceID = slice.primary.slice_id.text
       }
     }
-    console.log(slice.slice_type)
+
     const res = (() => {
       switch (slice.slice_type) {
         case "basic_section":
@@ -57,7 +67,7 @@ const PostSlices = ({ slices, blog, leadership, job, podcast, podinfo }) => {
               key={index}
               className="slice-wrapper slice-tabs"
             >
-              {<TabsSlice slice={slice} />}
+              {<TabsSlice slice={slice} tab={tab} />}
             </div>
           )
         case "hero":
@@ -189,7 +199,8 @@ const Page = ({ data }) => {
   const podinfo = data.podinfo
   const blog = data.blog
   const [isOpen, setOpen] = useState(false)
-
+  // something like: ?x=123&foo=bar in the URL
+  const [tab, setTab] = useQueryParam("tab", NumberParam)
   return (
     <React.Fragment>
       <Layout slug={node.uid}>
@@ -203,6 +214,7 @@ const Page = ({ data }) => {
               podcast={podcast}
               podinfo={podinfo}
               blog={blog}
+              tab={tab}
             />
           )}
           {/* {node.data.youtube_popup_id.text && (

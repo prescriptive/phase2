@@ -13,6 +13,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cache`,
+    "gatsby-plugin-use-query-params",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
