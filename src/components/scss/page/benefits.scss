@@ -141,17 +141,17 @@
 }
 .react-tabs__tab-panel:nth-child(2) {
   p {
-    &:nth-child(6) {
+    &:nth-child(5) {
       float: left;
       width: calc(100% - 200px);
-      margin-bottom: 40px !important;
+      // margin-bottom: 40px !important;
       @include tablet() {
         float: none;
         width: 100%;
         margin-bottom: 0px;
       }
     }
-    &:nth-child(7) {
+    &:nth-child(6) {
       float: right;
       width: 200px;
       position: relative;
@@ -184,6 +184,12 @@
           font-weight: normal;
           display: block;
         }
+      }
+    }
+    &:nth-child(7) {
+      width: calc(100% - 200px);
+      @include tablet() {
+        width: 100%;
       }
     }
   }
