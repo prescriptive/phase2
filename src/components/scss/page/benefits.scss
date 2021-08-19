@@ -167,6 +167,8 @@
     float: right;
     width: 125px;
     margin: 45px 0px 20px 20px;
+    position: relative;
+    left: 57px;
   }
   @include tablet() {
     p {
@@ -175,6 +177,7 @@
     }
     .block-img {
       margin: 45px 0px 20px 20px;
+      left: auto;
     }
   }
 }
@@ -186,6 +189,8 @@
     float: right;
     width: 300px;
     margin: 45px 0px 20px 20px;
+    position: relative;
+    left: 150px;
   }
   @include tablet() {
     p {
@@ -194,12 +199,14 @@
     }
     .block-img {
       margin: 45px 0px 20px 20px;
+      left: auto;
     }
   }
   @include mobile() {
     .block-img {
       margin: 45px 0px 20px 20px;
       width: 200px;
+      left: auto;
     }
   }
 }
@@ -211,6 +218,8 @@
     float: right;
     width: 250px;
     margin: 45px 0px 20px 20px;
+    position: relative;
+    left: 125px;
   }
   @include tablet() {
     p {
@@ -219,12 +228,14 @@
     }
     .block-img {
       margin: 45px 0px 20px 20px;
+      left: auto;
     }
   }
   @include mobile() {
     .block-img {
       margin: 45px 0px 20px 20px;
       width: 175px;
+      left: auto;
     }
   }
 }
