@@ -165,7 +165,7 @@
   }
   .block-img {
     float: right;
-    width: 75px;
+    width: 125px;
     margin: 45px 0px 20px 20px;
   }
   @include tablet() {
@@ -184,7 +184,7 @@
   }
   .block-img {
     float: right;
-    width: 175px;
+    width: 300px;
     margin: 45px 0px 20px 20px;
   }
   @include tablet() {
@@ -199,7 +199,7 @@
   @include mobile() {
     .block-img {
       margin: 45px 0px 20px 20px;
-      width: 125px;
+      width: 200px;
     }
   }
 }
@@ -209,7 +209,7 @@
   }
   .block-img {
     float: right;
-    width: 125px;
+    width: 250px;
     margin: 45px 0px 20px 20px;
   }
   @include tablet() {
@@ -224,7 +224,7 @@
   @include mobile() {
     .block-img {
       margin: 45px 0px 20px 20px;
-      width: 100px;
+      width: 175px;
     }
   }
 }
