@@ -54,7 +54,8 @@
           "block_reference" : [ ],
           "contact" : [ ],
           "hero" : [ ],
-          "faq" : [ ]
+          "faq" : [ ],
+          "tabs" : [ ]
         },
         "choices" : {
           "basic_section" : {
@@ -498,6 +499,32 @@
                   "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
                   "allowTargetBlank" : true,
                   "label" : "Answer"
+                }
+              }
+            }
+          },
+          "tabs" : {
+            "type" : "Slice",
+            "fieldset" : "Tabs",
+            "description" : "tabs",
+            "icon" : "tab",
+            "display" : "list",
+            "non-repeat" : { },
+            "repeat" : {
+              "tab_title" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "heading2",
+                  "label" : "Tab Title"
+                }
+              },
+              "tab_content" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "multi" : "paragraph, preformatted, heading1, heading2, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, embed, list-item, o-list-item, rtl",
+                  "allowTargetBlank" : true,
+                  "label" : "Tab Content",
+                  "labels" : [ "quote" ]
                 }
               }
             }
