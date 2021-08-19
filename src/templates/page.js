@@ -38,6 +38,7 @@ const PostSlices = ({
 }) => {
   return slices.map((slice, index) => {
     var sliceID = ""
+    console.log(slice.slice_type)
     if (slice.primary) {
       if (slice.primary.slice_id != undefined) {
         var sliceID = slice.primary.slice_id.text
@@ -57,6 +58,19 @@ const PostSlices = ({
               className="slice-wrapper slice-basic"
             >
               {<BasicSectionSlice slice={slice} />}
+            </div>
+          )
+        case "tabs_new":
+          const TabsNewSlice = loadable(() =>
+            import(`../components/slices/TabNew`)
+          )
+          return (
+            <div
+              id={"slice-id-" + sliceID}
+              key={index}
+              className="slice-wrapper slice-tabs"
+            >
+              {<TabsNewSlice slice={slice} tab={tab} />}
             </div>
           )
         case "tabs":
@@ -289,6 +303,20 @@ export const postQuery = graphql`
           text
         }
         body {
+          ... on PrismicPaBodyTabsNew {
+            id
+            slice_type
+            items {
+              tab {
+                document {
+                  ... on PrismicTab {
+                    id
+                    dataRaw
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicPaBodyTabs {
             id
             slice_type

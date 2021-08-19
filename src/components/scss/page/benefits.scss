@@ -139,63 +139,150 @@
   max-width: 820px;
   position: relative;
 }
-.react-tabs__tab-panel:nth-child(2) {
+//
+.tab-left-right-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include tablet() {
+    align-items: flex-start;
+  }
+  .tab-left {
+    width: 70%;
+  }
+  .tab-right {
+    width: 25%;
+  }
+}
+.slice-tabs {
+  div {
+    clear: both;
+  }
+}
+#hassle-top {
   p {
-    &:nth-child(5) {
-      float: left;
-      width: calc(100% - 200px);
-      // margin-bottom: 40px !important;
+    display: block;
+  }
+  .block-img {
+    float: right;
+    width: 75px;
+    margin: 45px 0px 20px 20px;
+  }
+  @include tablet() {
+    p {
+      float: none;
+      width: 100%;
+    }
+    .block-img {
+      margin: 45px 0px 20px 20px;
+    }
+  }
+}
+#engineer-glasses {
+  p {
+    display: block;
+  }
+  .block-img {
+    float: right;
+    width: 175px;
+    margin: 45px 0px 20px 20px;
+  }
+  @include tablet() {
+    p {
+      float: none;
+      width: 100%;
+    }
+    .block-img {
+      margin: 45px 0px 20px 20px;
+    }
+  }
+  @include mobile() {
+    .block-img {
+      margin: 45px 0px 20px 20px;
+      width: 125px;
+    }
+  }
+}
+#hybrid-top {
+  p {
+    display: block;
+  }
+  .block-img {
+    float: right;
+    width: 125px;
+    margin: 45px 0px 20px 20px;
+  }
+  @include tablet() {
+    p {
+      float: none;
+      width: 100%;
+    }
+    .block-img {
+      margin: 45px 0px 20px 20px;
+    }
+  }
+  @include mobile() {
+    .block-img {
+      margin: 45px 0px 20px 20px;
+      width: 100px;
+    }
+  }
+}
+// #hassle {
+//   @include tablet() {
+//     .tab-left-right-container {
+//       display: block;
+//       .tab-left {
+//         width: 100%;
+//       }
+//       .tab-right {
+//         float: right;
+//         .block-img {
+//           display: block;
+//         }
+//       }
+//     }
+//   }
+// }
+#sales-quote {
+  .tab-left-right-container {
+    @include tablet() {
+      flex-direction: column;
+    }
+    .tab-left {
+      width: 75%;
       @include tablet() {
-        float: none;
         width: 100%;
-        margin-bottom: 0px;
       }
     }
-    &:nth-child(6) {
-      float: right;
-      width: 200px;
-      position: relative;
-
-      @include tablet() {
-        float: none;
-        width: 100%;
-      }
-      .quote {
-        width: 320px;
-        position: absolute;
-        left: 80px;
-        @include tablet() {
-          position: relative;
-          left: 0px;
-          width: auto;
-        }
-        strong {
-          color: $trueBlue;
-          font-size: 32px;
-          line-height: 40px;
-          font-weight: 500;
-          font-style: italic;
-          display: block;
-        }
-        em {
-          font-size: 18px;
-          line-height: 24px;
-          text-align: right;
-          font-weight: normal;
-          display: block;
-        }
-      }
-    }
-    &:nth-child(7) {
-      width: calc(100% - 200px);
+    .tab-right {
+      width: 25%;
       @include tablet() {
         width: 100%;
+        max-width: 320px;
+        // align-self: flex-end;
       }
     }
   }
-  h3 {
-    &:nth-child(8) {
-      clear: both;
+  .tab-right {
+    p {
+      position: relative;
+      left: 50px;
+      margin: 0px;
+      min-width: 320px;
+      text-align: right;
+      @include tablet() {
+        min-width: auto;
+        left: auto;
+      }
+    }
+    strong {
+      color: #003552;
+      font-size: 32px;
+      line-height: 40px;
+      font-weight: 500;
+      font-style: italic;
+      display: block;
     }
   }
 }
