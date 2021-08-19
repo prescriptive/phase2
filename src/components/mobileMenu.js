@@ -94,7 +94,7 @@ const Wrapper = styled.div`
 `
 
 const MenuToggle = styled.div`
-  position: ${props => (props.open ? "fixed" : "relative")};
+  position: ${(props) => (props.open ? "fixed" : "relative")};
   z-index: 9999;
   width: 40px;
   height: 40px;
@@ -102,8 +102,8 @@ const MenuToggle = styled.div`
   transition: all 0.25s ease-in;
   cursor: pointer;
   margin-left: auto;
-  top: ${props => (props.open ? "28px" : "auto")};
-  right: ${props => (props.open ? "5%" : "auto")};
+  top: ${(props) => (props.open ? "28px" : "auto")};
+  right: ${(props) => (props.open ? "5%" : "auto")};
   span {
     display: block;
     position: absolute;
@@ -114,47 +114,47 @@ const MenuToggle = styled.div`
     opacity: 1;
     left: 0;
     transform: rotate(0deg);
-    transition: ${props =>
+    transition: ${(props) =>
       props.open ? "all 0.25s ease-in" : "all 0.25s ease-out"};
   }
   span:nth-child(1) {
-    top: ${props => (props.open ? "calc(50% - 3.5px)" : "10%")};
+    top: ${(props) => (props.open ? "calc(50% - 3.5px)" : "10%")};
     transform-origin: left center;
   }
   span:nth-child(2) {
-    top: ${props => (props.open ? 0 : "calc(50% - 4.5px)")};
-    left: ${props => (props.open ? "calc(50% - 2.5px)" : null)};
-    width: ${props => (props.open ? "5px" : null)};
-    height: ${props => (props.open ? "100%" : null)};
+    top: ${(props) => (props.open ? 0 : "calc(50% - 4.5px)")};
+    left: ${(props) => (props.open ? "calc(50% - 2.5px)" : null)};
+    width: ${(props) => (props.open ? "5px" : null)};
+    height: ${(props) => (props.open ? "100%" : null)};
     transform-origin: left center;
   }
   span:nth-child(3) {
     top: calc(90% - 8px);
     transform-origin: left center;
-    width: ${props => (props.open ? 0 : null)};
-    opacity: ${props => (props.open ? 0 : 1)};
+    width: ${(props) => (props.open ? 0 : null)};
+    opacity: ${(props) => (props.open ? 0 : 1)};
   }
 `
 
 const RotateContainer = styled.div`
   height: 100%;
   width: 100%;
-  transition: ${props =>
+  transition: ${(props) =>
     props.open ? "all 0.25s ease-in-out" : "all 0.25s ease-in-out"};
-  transform: ${props => (props.open ? "rotate(-45deg)" : "none")};
+  transform: ${(props) => (props.open ? "rotate(-45deg)" : "none")};
 `
 
 const MenuWrapper = styled.div`
   position: fixed;
   overflow: hidden;
-  right: ${props => (props.open ? "0" : "-100%")};
+  right: ${(props) => (props.open ? "0" : "-100%")};
   top: 0;
   z-index: 999;
   width: 100%;
   max-width: 240px;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.9);
-  transition: ${props =>
+  transition: ${(props) =>
     props.open ? "all 0.25s ease-out" : "all 0.6s ease-out"};
   box-shadow: 0px 4px 20px -5px #e8e8e8;
   padding: 40px 30px;
@@ -219,7 +219,7 @@ class Mobilemenu extends React.Component {
   }
 
   toggleMenu() {
-    this.setState(state => ({ menuOpen: !state.menuOpen }))
+    this.setState((state) => ({ menuOpen: !state.menuOpen }))
   }
   // handleStateChange(state) {
   //   this.setState({ menuOpen: state.isOpen })
@@ -284,7 +284,7 @@ class Mobilemenu extends React.Component {
             }
           }
         `}
-        render={data => (
+        render={(data) => (
           <>
             <div id="mobile-menu-header">
               <div classnName="menu-container">
@@ -330,7 +330,7 @@ class Mobilemenu extends React.Component {
                         {!menuitem.primary.link.id && (
                           <Link
                             activeStyle={{ color: variable.darkgray }}
-                            to={menuitem.primary.relative_link.text}
+                            to={menuitem.primary.link.url}
                             onClick={() => this.toggleMenu()}
                             activeClassName="active"
                             activeStyle={activeStyle}
@@ -353,10 +353,13 @@ class Mobilemenu extends React.Component {
                           </ul>
                         )}
                       </li>
-
                     )
                   )}
-                  <li><a href="https://www.prescriptive.solutions">Go to Prescriptive Solutions</a></li>
+                  <li>
+                    <a href="https://www.prescriptive.solutions">
+                      Go to Prescriptive Solutions
+                    </a>
+                  </li>
                 </ul>
               </div>
             </MenuWrapper>

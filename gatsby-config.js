@@ -5,19 +5,20 @@ const linkResolver = require("./src/utils/linkResolver")
 
 module.exports = {
   siteMetadata: {
-    title: `Prescriptive Solutions`,
+    title: `Phase2 Prescriptive Solutions`,
     description: `Prescriptive Data Solutions helps our enterprise customers connect, secure, transform and scale through information technology consulting, solutions, integration, and managed services.`,
     author: `Digett`,
-    siteUrl: `https://www.prescriptive.solutions`,
+    siteUrl: `https://phase2.prescriptive.solutions`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cache`,
+    "gatsby-plugin-use-query-params",
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://www.prescriptive.solutions",
-        sitemap: "https://www.prescriptive.solutions/sitemap.xml",
+        host: "https://phase2.prescriptive.solutions",
+        sitemap: "https://phase2.prescriptive.solutions/sitemap.xml",
         policy: [{ userAgent: "*", allow: "/" }],
       },
     },
@@ -37,9 +38,6 @@ module.exports = {
         },
         linkResolver: ({ node, key, value }) => (doc) => {
           // Your link resolver
-          if (doc.type === "blog_post") {
-            return "/blog/" + doc.uid
-          }
           if (doc.type === "pa") {
             return "/" + doc.uid
           }
@@ -49,6 +47,7 @@ module.exports = {
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
+        releaseID: `${process.env.PRISMIC_RELEASE_ID}`,
         schemas: {
           pa: require("./src/schemas/page.json"),
           blog_post: require("./src/schemas/blog_post.json"),
@@ -59,7 +58,7 @@ module.exports = {
           block: require("./src/schemas/block.json"),
           podcast: require("./src/schemas/podcast.json"),
         },
-        prismicToolbar: false,
+        prismicToolbar: true,
       },
     },
     {
@@ -245,14 +244,21 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: "gatsby-plugin-load-script",
+      options: {
+        src: "https://prescriptivesolutions.activehosted.com/f/embed.php?id=9",
+        crossorigin: "anonymous",
+      },
+    },
     // {
     //   resolve: "gatsby-plugin-google-tagmanager",
     //   options: {
-    //     id: "GTM-KWP5GHG",
+    //     id: "GTM-MCJCSBW",
     //   },
     // },
     `gatsby-plugin-offline`,
-    
+
     // "gatsby-plugin-netlify",
   ],
 }

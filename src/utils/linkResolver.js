@@ -1,10 +1,12 @@
 const linkResolver = doc => {
   // Route for blog posts
-  if (doc.type === "blog_post") {
-    return "/blog/" + doc.uid
-  }
   if (doc.type === "pa") {
-    return "/" + doc.uid
+    if (doc.uid === 'home') {
+      return "/"
+    }
+    else {
+      return "/" + doc.uid
+    }
   }
 
   // Homepage route fallback

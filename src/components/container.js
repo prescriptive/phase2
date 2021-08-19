@@ -11,7 +11,8 @@ const Container = styled.div`
   }
   @media (max-width: ${variable.mobileWidth}) {
     max-width: ${variable.mobileWidth};
-    margin: auto 5%;
+    /* margin: auto 5%; */
+    padding: 0px 5%;
   }
 `
 

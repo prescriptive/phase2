@@ -4,6 +4,9 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import { withUnpublishedPreview } from 'gatsby-source-prismic'
+import Page from '../templates/page'
+import Job from '../templates/job'
 const Style404 = styled.div`
   padding: 60px 0px;
   text-align: center;
@@ -30,17 +33,24 @@ export const NotFoundPage = () => {
     }
   }
 `)
-return(
-  <Layout>
-    <Container>
-      <Style404>
-        <h1>NOT FOUND</h1>
-        <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-        <Img fluid={data.notfound.childImageSharp.fluid} />
-      </Style404>
-    </Container>
-  </Layout>
-)
+  return (
+    <Layout>
+      <Container>
+        <Style404>
+          <h1>NOT FOUND</h1>
+          <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+          <Img fluid={data.notfound.childImageSharp.fluid} />
+        </Style404>
+      </Container>
+    </Layout>
+  )
 
 }
-export default NotFoundPage
+export default withUnpublishedPreview(NotFoundPage, {
+  templateMap: {
+    page: Page,
+    prismicPage: Page,
+    prismicJob: Job,
+    job: Job,
+  },
+})

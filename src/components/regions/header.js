@@ -17,6 +17,9 @@ const HeaderStyle = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 15px;
+  @media (max-width: ${variable.mobileWidth}) {
+    background-size: 122%;
+  }
   .the-header-container {
     position: relative;
   }
@@ -94,6 +97,9 @@ const HeaderStyle = styled.header`
       list-style: none;
       margin-right: 50px;
       position: relative;
+      @media (max-width: ${variable.tabletWidth}) {
+        margin-right: 20px;
+      }
       &:last-child {
         margin-right: 0px;
       }
@@ -105,6 +111,9 @@ const HeaderStyle = styled.header`
         padding: 20px 0px;
         position: relative;
         top: 6px;
+        @media (max-width: ${variable.tabletWidth}) {
+          font-size: 15px;
+        }
         &:hover {
           text-decoration: underline;
         }

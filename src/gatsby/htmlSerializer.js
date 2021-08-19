@@ -2,7 +2,8 @@ import React from "react"
 import AudioFile from "../components/tokens/audioFile"
 import { Link } from "gatsby"
 import Video from "../components/video"
-
+import SignUp from "../components/signup"
+import ResponsiveEmbed from "react-responsive-embed"
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
   if (doc.type === "blog_post") {
@@ -47,8 +48,21 @@ function toggleTypeForm() {
 
 const htmlSerializer = (type, element, content, children) => {
   var link = ""
-
   switch (type) {
+    case "embed":
+      if (element.oembed.type == "video") {
+        console.log(element)
+        console.log(element.oembed.embed_url)
+        var video_id = element.oembed.embed_url.split("v=")[1]
+        var ampersandPosition = video_id.indexOf("&")
+        if (ampersandPosition != -1) {
+          video_id = video_id.substring(0, ampersandPosition)
+        }
+        console.log(video_id)
+        return (
+          <ResponsiveEmbed src={"https://www.youtube.com/embed/" + video_id} />
+        )
+      }
     case "label":
       if (element.data.label) {
         if (element.data.label == "youtube-popup") {
@@ -65,6 +79,9 @@ const htmlSerializer = (type, element, content, children) => {
               {content}
             </span>
           )
+        }
+        if (element.data.label == "sign-up") {
+          return <SignUp></SignUp>
         }
       }
     case "hyperlink":
