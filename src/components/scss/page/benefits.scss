@@ -165,10 +165,14 @@
   }
   .block-img {
     float: right;
-    width: 125px;
+    width: 75px;
     margin: 45px 0px 20px 20px;
     position: relative;
-    left: 57px;
+    img {
+      width: 150px;
+      max-width: 150px;
+    }
+    // left: 57px;
   }
   @include tablet() {
     p {
@@ -178,6 +182,11 @@
     .block-img {
       margin: 45px 0px 20px 20px;
       left: auto;
+      width: 150px;
+      img {
+        width: 150px;
+        max-width: 150px;
+      }
     }
   }
 }
@@ -187,10 +196,14 @@
   }
   .block-img {
     float: right;
-    width: 300px;
+    width: 150px;
     margin: 45px 0px 20px 20px;
     position: relative;
-    left: 150px;
+    // left: 150px;
+    img {
+      width: 300px;
+      max-width: 300px;
+    }
   }
   @include tablet() {
     p {
@@ -200,6 +213,11 @@
     .block-img {
       margin: 45px 0px 20px 20px;
       left: auto;
+      width: 200px;
+      img {
+        width: 200px;
+        max-width: 200px;
+      }
     }
   }
   @include mobile() {
@@ -216,10 +234,14 @@
   }
   .block-img {
     float: right;
-    width: 250px;
+    width: 125px;
     margin: 45px 0px 20px 20px;
     position: relative;
-    left: 125px;
+    // left: 125px;
+    img {
+      width: 250px;
+      max-width: 250px;
+    }
   }
   @include tablet() {
     p {
@@ -229,6 +251,11 @@
     .block-img {
       margin: 45px 0px 20px 20px;
       left: auto;
+      width: 125px;
+      img {
+        width: 125px;
+        max-width: 125px;
+      }
     }
   }
   @include mobile() {
