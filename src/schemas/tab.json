@@ -29,6 +29,13 @@
                   "single": "paragraph",
                   "label": "Slice ID"
                 }
+              },
+              "sub_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "heading2",
+                  "label": "Sub Title"
+                }
               }
             },
             "repeat": {

@@ -21,6 +21,11 @@ const PostSlices = ({ tab }) => {
         case "basic_text":
           return (
             <div id={sliceID}>
+              {slice.primary.sub_title[0] && (
+                <h3 className="tab-sub-title">
+                  {slice.primary.sub_title[0].text}
+                </h3>
+              )}
               <RichText
                 render={slice.items[0].basic_rich_text}
                 linkResolver={linkResolver}
