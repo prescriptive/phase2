@@ -293,7 +293,7 @@ export const Header = () => {
     <HeaderStyle className="header">
       <Container className="the-header-container">
         <div class="back-to-pre">
-          <a href="https://www.prescriptive.solutions">
+          <a target="_blank" href="https://www.prescriptive.solutions">
             Go to Prescriptive Solutions
           </a>
         </div>
