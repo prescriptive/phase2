@@ -165,12 +165,12 @@
   }
   .block-img {
     float: right;
-    width: 75px;
+    width: 10%;
     margin: 45px 0px 20px 20px;
     position: relative;
     img {
-      width: 150px;
-      max-width: 150px;
+      width: 200%;
+      max-width: 200%;
     }
     // left: 57px;
   }
@@ -182,10 +182,10 @@
     .block-img {
       margin: 45px 0px 20px 20px;
       left: auto;
-      width: 150px;
+      width: 20%;
       img {
-        width: 150px;
-        max-width: 150px;
+        width: 100%;
+        max-width: 100%;
       }
     }
   }
@@ -196,13 +196,13 @@
   }
   .block-img {
     float: right;
-    width: 150px;
+    width: 20%;
     margin: 45px 0px 20px 20px;
     position: relative;
     // left: 150px;
     img {
-      width: 300px;
-      max-width: 300px;
+      width: 200%;
+      max-width: 200%;
     }
   }
   @include tablet() {
@@ -213,18 +213,11 @@
     .block-img {
       margin: 45px 0px 20px 20px;
       left: auto;
-      width: 200px;
+      width: 40%;
       img {
-        width: 200px;
-        max-width: 200px;
+        width: 100%;
+        max-width: 100%;
       }
-    }
-  }
-  @include mobile() {
-    .block-img {
-      margin: 45px 0px 20px 20px;
-      width: 200px;
-      left: auto;
     }
   }
 }
@@ -234,13 +227,13 @@
   }
   .block-img {
     float: right;
-    width: 125px;
+    width: 20%;
     margin: 45px 0px 20px 20px;
     position: relative;
     // left: 125px;
     img {
-      width: 250px;
-      max-width: 250px;
+      width: 200%;
+      max-width: 200%;
     }
   }
   @include tablet() {
@@ -251,18 +244,11 @@
     .block-img {
       margin: 45px 0px 20px 20px;
       left: auto;
-      width: 125px;
+      width: 40%;
       img {
-        width: 125px;
-        max-width: 125px;
+        width: 100%;
+        max-width: 100%;
       }
-    }
-  }
-  @include mobile() {
-    .block-img {
-      margin: 45px 0px 20px 20px;
-      width: 175px;
-      left: auto;
     }
   }
 }
