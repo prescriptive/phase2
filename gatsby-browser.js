@@ -16,11 +16,3 @@ export const shouldUpdateScroll = ({
   const currentPosition = getSavedScrollPosition(location)
   return currentPosition || [0, 0]
 }
-export const onServiceWorkerUpdateReady = () => {
-  window.location.reload()
-}
-export const onRouteUpdate = () => {
-  navigator.serviceWorker.register('/sw.js').then((reg) => {
-    reg.update();
-  });
-};
