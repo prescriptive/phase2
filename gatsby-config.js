@@ -258,7 +258,7 @@ module.exports = {
     //     id: "GTM-MCJCSBW",
     //   },
     // },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
 
     // "gatsby-plugin-netlify",
   ],
