@@ -109,12 +109,14 @@
   //   #f46036 118.87%
   // );
   // border-bottom-right-radius: 100%;
-  background-image: url(../../../images/gearnewcrop.png);
+  // background-image: url(../../../images/gearnewcrop.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 15px;
   position: relative;
   z-index: 99;
+  // background-image: url("../../../images/gear-desktop.webp");
+
   section {
     min-height: 750px;
     display: flex;
@@ -456,5 +458,30 @@
   height: 73px;
   section {
     padding: 0px;
+  }
+}
+
+@include desktop() {
+  #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-desktop.png");
+  }
+  .webp #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-desktop.webp");
+  }
+}
+@include tablet() {
+  #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-tablet.png");
+  }
+  #slice-id-phase-2-gear .webp {
+    background-image: url("../../../images/gear-tablet.webp");
+  }
+}
+@include mobile() {
+  #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-mobile.png");
+  }
+  .webp #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-mobile.webp");
   }
 }

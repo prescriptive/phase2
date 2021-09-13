@@ -17,6 +17,7 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
+        <script src="https://cdn.jsdelivr.net/modernizr/3.3.1/modernizr.min.js"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
