@@ -38,7 +38,6 @@ const PostSlices = ({
 }) => {
   return slices.map((slice, index) => {
     var sliceID = ""
-    console.log(slice.slice_type)
     if (slice.primary) {
       if (slice.primary.slice_id != undefined) {
         var sliceID = slice.primary.slice_id.text
@@ -848,6 +847,18 @@ export const postQuery = graphql`
               content {
                 html
                 raw
+              }
+              column_image {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      width: 800
+                      placeholder: BLURRED
+                      formats: [AUTO, WEBP, AVIF]
+                    )
+                  }
+                }
               }
             }
           }

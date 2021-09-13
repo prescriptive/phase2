@@ -2,10 +2,11 @@ import styled from "styled-components"
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
 import Container from "../container"
-import { RichText} from "prismic-reactjs"
+import { RichText } from "prismic-reactjs"
 import * as variable from "../variables"
 import linkResolver from "../../utils/linkResolver"
 import prismicHtmlSerializer from "../../gatsby/htmlSerializer"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const ColumnStyle = styled.div`
   .column {
@@ -59,6 +60,20 @@ const ColumnStyle = styled.div`
     }
   }
 `
+const ReturnImage = ({ item }) => {
+  if (item.column_image?.localFile?.childImageSharp) {
+    console.log(item.column_image)
+    return (
+      <p className="block-img">
+        <GatsbyImage
+          image={item.column_image.localFile.childImageSharp.gatsbyImageData}
+          alt={item.column_image.alt}
+        />
+      </p>
+    )
+  }
+  return null
+}
 
 function ColumnsSectionSlice({ slice }) {
   var fluid = null
@@ -98,6 +113,7 @@ function ColumnsSectionSlice({ slice }) {
                           linkResolver={linkResolver}
                           htmlSerializer={prismicHtmlSerializer}
                         />
+                        {items.column_image.localFile && <h2>tester</h2>}
                       </div>
                     ))}
                 </div>
@@ -119,11 +135,18 @@ function ColumnsSectionSlice({ slice }) {
                 {items &&
                   items.map((item, index) => (
                     <div key={index} className="column-item">
-                      <RichText
-                        render={item.content.raw}
-                        linkResolver={linkResolver}
-                        htmlSerializer={prismicHtmlSerializer}
-                      />
+                      {console.log(item.content.raw)}
+                      {item.content.raw && (
+                        <div>
+                          <RichText
+                            render={item.content.raw}
+                            linkResolver={linkResolver}
+                            htmlSerializer={prismicHtmlSerializer}
+                          />
+                        </div>
+                      )}
+
+                      <ReturnImage item={item}></ReturnImage>
                     </div>
                   ))}
               </div>
