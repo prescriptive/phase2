@@ -20,14 +20,7 @@ class LazyVideo extends React.Component {
   render() {
     console.log(this)
 
-    return this.state.loaded ? (
-      <ResponsiveEmbed
-        className="lazyframe"
-        src={"https://www.youtube.com/embed/" + this.props.video_id}
-      />
-    ) : (
-      <h2>loading</h2>
-    )
+    return this.state.loaded ? <h2>test</h2> : <h2>loading</h2>
   }
 }
 // export const LazyVideo = ({ video_id }) => {
