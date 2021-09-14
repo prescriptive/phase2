@@ -463,7 +463,7 @@
 
 @include desktop() {
   #slice-id-phase-2-gear {
-    background-image: url("../../../images/gear-desktop.png");
+    background-image: url("../../../images/gear-desktop.webp");
   }
   .webp #slice-id-phase-2-gear {
     background-image: url("../../../images/gear-desktop.webp");
@@ -471,7 +471,7 @@
 }
 @include tablet() {
   #slice-id-phase-2-gear {
-    background-image: url("../../../images/gear-tablet.png");
+    background-image: url("../../../images/gear-tablet.webp");
   }
   #slice-id-phase-2-gear .webp {
     background-image: url("../../../images/gear-tablet.webp");
@@ -479,7 +479,7 @@
 }
 @include mobile() {
   #slice-id-phase-2-gear {
-    background-image: url("../../../images/gear-mobile.png");
+    background-image: url("../../../images/gear-mobile.webp");
   }
   .webp #slice-id-phase-2-gear {
     background-image: url("../../../images/gear-mobile.webp");

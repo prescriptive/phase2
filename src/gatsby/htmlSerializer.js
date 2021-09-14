@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense, lazy } from "react"
 import AudioFile from "../components/tokens/audioFile"
 import { Link } from "gatsby"
 import Video from "../components/video"
@@ -46,10 +46,20 @@ function toggleTypeForm() {
   var aNode = y[0]
   aNode.click()
 }
+const Test = (video_id) => {
+  return (
+    <ResponsiveEmbed
+      className="lazyframe"
+      src={"https://www.youtube.com/embed/" + video_id}
+    />
+  )
+}
+// const AmazonFrame = lazy(() => import(Test))
+const OtherComponent = React.lazy(() => import("./LazyVideo"))
 
-const htmlSerializer = (type, element, content, children) => {
+const HtmlSerializer = (type, element, content, children) => {
   var link = ""
-  console.log(type)
+
   switch (type) {
     case "embed":
       if (element.oembed.type == "video") {
@@ -61,12 +71,11 @@ const htmlSerializer = (type, element, content, children) => {
           video_id = video_id.substring(0, ampersandPosition)
         }
         console.log(video_id)
-        lazyframe(".lazyframe")
+        // lazyframe(".lazyframe")
         return (
-          <ResponsiveEmbed
-            className="lazyframe"
-            src={"https://www.youtube.com/embed/" + video_id}
-          />
+          <Suspense fallback={<div>Loading...</div>}>
+            <OtherComponent video_id={video_id}></OtherComponent>
+          </Suspense>
         )
       }
     case "label":
@@ -129,4 +138,4 @@ const htmlSerializer = (type, element, content, children) => {
 }
 
 // module.exports = htmlSerializer
-export default htmlSerializer
+export default HtmlSerializer
