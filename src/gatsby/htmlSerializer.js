@@ -55,7 +55,7 @@ const Test = (video_id) => {
   )
 }
 // const AmazonFrame = lazy(() => import(Test))
-const OtherComponent = React.lazy(() => import("./LazyVideo"))
+const OtherComponent = React.lazy(() => import("./lazyVideo"))
 
 const HtmlSerializer = (type, element, content, children) => {
   var link = ""
