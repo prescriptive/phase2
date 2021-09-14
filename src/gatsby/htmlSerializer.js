@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Video from "../components/video"
 import SignUp from "../components/signup"
 import ResponsiveEmbed from "react-responsive-embed"
+import lazyframe from "lazyframe"
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
   if (doc.type === "blog_post") {
@@ -48,6 +49,7 @@ function toggleTypeForm() {
 
 const htmlSerializer = (type, element, content, children) => {
   var link = ""
+  console.log(type)
   switch (type) {
     case "embed":
       if (element.oembed.type == "video") {
@@ -59,8 +61,12 @@ const htmlSerializer = (type, element, content, children) => {
           video_id = video_id.substring(0, ampersandPosition)
         }
         console.log(video_id)
+        lazyframe(".lazyframe")
         return (
-          <ResponsiveEmbed src={"https://www.youtube.com/embed/" + video_id} />
+          <ResponsiveEmbed
+            className="lazyframe"
+            src={"https://www.youtube.com/embed/" + video_id}
+          />
         )
       }
     case "label":
