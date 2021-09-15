@@ -11,6 +11,7 @@ class LazyVideo extends React.Component {
     if (this.state.loaded === true) {
     } else {
       window.addEventListener("mousemove", this.handleLoad)
+      window.addEventListener("touchmove", this.handleLoad)
     }
   }
 
@@ -18,6 +19,7 @@ class LazyVideo extends React.Component {
     this.setState({ loaded: true })
     console.log(this.state.loaded)
     window.removeEventListener("mousemove", this.handleLoad)
+    window.removeEventListener("touchmove", this.handleLoad)
   }
   render() {
     console.log(this)
