@@ -4,9 +4,9 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-import { withUnpublishedPreview } from 'gatsby-source-prismic'
-import Page from '../templates/page'
-import Job from '../templates/job'
+// import { withUnpublishedPreview } from 'gatsby-source-prismic'
+// import Page from '../templates/page'
+// import Job from '../templates/job'
 const Style404 = styled.div`
   padding: 60px 0px;
   text-align: center;
@@ -16,23 +16,23 @@ const Style404 = styled.div`
   h1 {
     margin: 0px;
   }
-   .gatsby-image-wrapper{
-     max-width:600px;
-     margin:0 auto;
-   }
+  .gatsby-image-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+  }
 `
 export const NotFoundPage = () => {
   const data = useStaticQuery(graphql`
-  query querynotfound{
-    notfound: file(relativePath: { eq: "pre_404.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 600) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+    query querynotfound {
+      notfound: file(relativePath: { eq: "pre_404.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 600) {
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
         }
       }
     }
-  }
-`)
+  `)
   return (
     <Layout>
       <Container>
@@ -44,13 +44,5 @@ export const NotFoundPage = () => {
       </Container>
     </Layout>
   )
-
 }
-export default withUnpublishedPreview(NotFoundPage, {
-  templateMap: {
-    page: Page,
-    prismicPage: Page,
-    prismicJob: Job,
-    job: Job,
-  },
-})
+export default NotFoundPage

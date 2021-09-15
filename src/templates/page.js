@@ -13,7 +13,7 @@ import SEO from "../components/seo"
 import { ReactTypeformEmbed } from "react-typeform-embed"
 import Helmet from "react-helmet"
 import Video from "../components/video"
-import { withPreview } from "gatsby-source-prismic"
+// import { withPreview } from "gatsby-source-prismic"
 import { useQueryParam, NumberParam, StringParam } from "use-query-params"
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
@@ -259,7 +259,7 @@ const Page = ({ data }) => {
   )
 }
 
-export default withPreview(Page)
+export default Page
 
 export const postQuery = graphql`
   query PageBySlug($uid: String!) {

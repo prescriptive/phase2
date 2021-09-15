@@ -1,10 +1,7 @@
-import React, { Suspense, lazy } from "react"
-import AudioFile from "../components/tokens/audioFile"
+import React, { Suspense } from "react"
 import { Link } from "gatsby"
-import Video from "../components/video"
-import SignUp from "../components/signup"
-import ResponsiveEmbed from "react-responsive-embed"
-import lazyframe from "lazyframe"
+// import Video from "../components/video"
+// import SignUp from "../components/signup"
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
   if (doc.type === "blog_post") {
@@ -50,6 +47,8 @@ function toggleTypeForm() {
 // const AmazonFrame = lazy(() => import(Test))
 const LazyVideo = React.lazy(() => import("./lazyVideo"))
 const LazyTypeform = React.lazy(() => import("./lazyTypeform"))
+const LazyAudiofile = React.lazy(() => import("./lazyAudiofile"))
+const LazySignup = React.lazy(() => import("./lazySignup"))
 
 const HtmlSerializer = (type, element, content, children) => {
   var link = ""
@@ -74,14 +73,14 @@ const HtmlSerializer = (type, element, content, children) => {
       }
     case "label":
       if (element.data.label) {
-        if (element.data.label == "youtube-popup") {
-          return (
-            <Video className="youtube-popup">{content}</Video>
-            // <span className="youtube-popup" onClick={() => toggleVideo()}>
-            //   {content}
-            // </span>
-          )
-        }
+        // if (element.data.label == "youtube-popup") {
+        //   return (
+        //     <Video className="youtube-popup">{content}</Video>
+        //     // <span className="youtube-popup" onClick={() => toggleVideo()}>
+        //     //   {content}
+        //     // </span>
+        //   )
+        // }
         if (element.data.label == "typeform-cta") {
           return (
             <Suspense fallback={<div>Loading...</div>}>
@@ -93,14 +92,21 @@ const HtmlSerializer = (type, element, content, children) => {
           )
         }
         if (element.data.label == "sign-up") {
-          return <SignUp></SignUp>
+          return (
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazySignup></LazySignup>
+            </Suspense>
+          )
         }
       }
     case "hyperlink":
       if (element.data.name) {
         if (element.data.name.includes(".mp3")) {
           // File type is .mp3
-          link = <AudioFile content={content} element={element} />
+
+          link = (
+            <LazyAudiofile content={content} element={element}></LazyAudiofile>
+          )
         }
       }
       if (element.data.link_type == "Document") {
