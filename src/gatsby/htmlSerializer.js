@@ -47,7 +47,7 @@ function toggleTypeForm() {
 // const AmazonFrame = lazy(() => import(Test))
 const LazyVideo = React.lazy(() => import("./lazyVideo"))
 const LazyTypeform = React.lazy(() => import("./lazyTypeform"))
-const LazyAudiofile = React.lazy(() => import("./lazyAudiofile"))
+// const LazyAudiofile = React.lazy(() => import("./lazyAudiofile"))
 const LazySignup = React.lazy(() => import("./lazySignup"))
 
 const HtmlSerializer = (type, element, content, children) => {
@@ -100,15 +100,6 @@ const HtmlSerializer = (type, element, content, children) => {
         }
       }
     case "hyperlink":
-      if (element.data.name) {
-        if (element.data.name.includes(".mp3")) {
-          // File type is .mp3
-
-          link = (
-            <LazyAudiofile content={content} element={element}></LazyAudiofile>
-          )
-        }
-      }
       if (element.data.link_type == "Document") {
         if (children[0].props != null) {
           var linkClass = children[0].props.className
