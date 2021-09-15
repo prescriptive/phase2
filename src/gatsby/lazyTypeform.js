@@ -1,6 +1,5 @@
 import React from "react"
-import ResponsiveEmbed from "react-responsive-embed"
-class LazyVideo extends React.Component {
+class LazyTypeform extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -22,12 +21,13 @@ class LazyVideo extends React.Component {
     window.removeEventListener("touchmove", this.handleLoad)
   }
   render() {
-    console.log(this)
-
     return this.state.loaded ? (
-      <ResponsiveEmbed
-        className="lazyframe"
-        src={"https://www.youtube.com/embed/" + this.props.video_id}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `
+                  <a class="typeform-share button" href="https://form.typeform.com/to/LkNfiuv4?typeform-medium=embed-snippet" data-mode="popup" style="display:none;" data-size="100" target="_blank">Launch me page </a><script>console.log('test')</script>
+                    `,
+        }}
       />
     ) : (
       ""
@@ -43,4 +43,4 @@ class LazyVideo extends React.Component {
 //   )
 // }
 
-export default LazyVideo
+export default LazyTypeform

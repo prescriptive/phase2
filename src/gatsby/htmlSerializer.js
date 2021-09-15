@@ -46,16 +46,10 @@ function toggleTypeForm() {
   var aNode = y[0]
   aNode.click()
 }
-const Test = (video_id) => {
-  return (
-    <ResponsiveEmbed
-      className="lazyframe"
-      src={"https://www.youtube.com/embed/" + video_id}
-    />
-  )
-}
+
 // const AmazonFrame = lazy(() => import(Test))
-const OtherComponent = React.lazy(() => import("./lazyVideo"))
+const LazyVideo = React.lazy(() => import("./lazyVideo"))
+const LazyTypeform = React.lazy(() => import("./lazyTypeform"))
 
 const HtmlSerializer = (type, element, content, children) => {
   var link = ""
@@ -74,7 +68,7 @@ const HtmlSerializer = (type, element, content, children) => {
         // lazyframe(".lazyframe")
         return (
           <Suspense fallback={<div>Loading...</div>}>
-            <OtherComponent video_id={video_id}></OtherComponent>
+            <LazyVideo video_id={video_id}></LazyVideo>
           </Suspense>
         )
       }
@@ -90,9 +84,12 @@ const HtmlSerializer = (type, element, content, children) => {
         }
         if (element.data.label == "typeform-cta") {
           return (
-            <span className="typeform-cta" onClick={() => toggleTypeForm()}>
-              {content}
-            </span>
+            <Suspense fallback={<div>Loading...</div>}>
+              <span className="typeform-cta" onClick={() => toggleTypeForm()}>
+                {content}
+                <LazyTypeform></LazyTypeform>
+              </span>
+            </Suspense>
           )
         }
         if (element.data.label == "sign-up") {

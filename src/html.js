@@ -52,13 +52,6 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-                      <a class="typeform-share button" href="https://form.typeform.com/to/LkNfiuv4?typeform-medium=embed-snippet" data-mode="popup" style="display:none;" data-size="100" target="_blank">Launch me page </a><script>console.log('test')</script>
-                        `,
-          }}
-        />
       </body>
     </html>
   )
