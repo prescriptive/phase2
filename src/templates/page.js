@@ -10,7 +10,7 @@ import "../components/scss/page/phase2new.scss"
 import "../components/scss/page/faq.scss"
 import "../components/scss/page/benefits.scss"
 import SEO from "../components/seo"
-// import { withPreview } from "gatsby-source-prismic"
+import { withPreview } from "gatsby-source-prismic"
 import { useQueryParam, NumberParam } from "use-query-params"
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
@@ -255,7 +255,7 @@ const Page = ({ data }) => {
   )
 }
 
-export default Page
+export default withPreview(Page)
 
 export const postQuery = graphql`
   query PageBySlug($uid: String!) {

@@ -53,7 +53,7 @@ const Job = (props) => {
     </Layout>
   )
 }
-export default Job
+export default withPreview(Job)
 export const query = graphql`
   query JobByUid($uid: String!) {
     job: prismicJob(uid: { eq: $uid }) {
