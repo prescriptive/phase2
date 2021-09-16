@@ -45,10 +45,10 @@ function toggleTypeForm() {
 }
 
 // const AmazonFrame = lazy(() => import(Test))
-const LazyVideo = React.lazy(() => import("./lazyVideo"))
 const LazyTypeform = React.lazy(() => import("./lazyTypeform"))
 // const LazyAudiofile = React.lazy(() => import("./lazyAudiofile"))
 const LazySignup = React.lazy(() => import("./lazySignup"))
+const LazyVideo = React.lazy(() => import("./lazyVideo"))
 
 const HtmlSerializer = (type, element, content, children) => {
   var link = ""
@@ -66,7 +66,7 @@ const HtmlSerializer = (type, element, content, children) => {
         console.log(video_id)
         // lazyframe(".lazyframe")
         return (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div></div>}>
             <LazyVideo video_id={video_id}></LazyVideo>
           </Suspense>
         )
@@ -83,8 +83,8 @@ const HtmlSerializer = (type, element, content, children) => {
         // }
         if (element.data.label == "typeform-cta") {
           return (
-            <Suspense fallback={<div>Loading...</div>}>
-              <span className="typeform-cta" onClick={() => toggleTypeForm()}>
+            <Suspense fallback={<div></div>}>
+              <span className="typeform-cta">
                 {content}
                 <LazyTypeform></LazyTypeform>
               </span>
@@ -93,7 +93,7 @@ const HtmlSerializer = (type, element, content, children) => {
         }
         if (element.data.label == "sign-up") {
           return (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<div></div>}>
               <LazySignup></LazySignup>
             </Suspense>
           )

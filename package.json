@@ -14,6 +14,8 @@
     "@loadable/webpack-plugin": "^5.15.1",
     "@material-ui/core": "^4.12.3",
     "@slixites/gatsby-plugin-google-fonts": "^1.1.1",
+    "@typeform/embed": "^1.18.1",
+    "@typeform/embed-react": "^1.1.1",
     "@wardpeet/gatsby-image-nextgen": "0.0.2",
     "babel-preset-gatsby": "^1.13.0",
     "gatsby": "^3.13.0",

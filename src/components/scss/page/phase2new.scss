@@ -116,7 +116,11 @@
   position: relative;
   z-index: 99;
   // background-image: url("../../../images/gear-desktop.webp");
-
+  .embed-pre-render {
+    background-image: url("../../../images/video-placeholder.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   section {
     min-height: 750px;
     display: flex;

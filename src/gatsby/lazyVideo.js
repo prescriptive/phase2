@@ -30,7 +30,14 @@ class LazyVideo extends React.Component {
         src={"https://www.youtube.com/embed/" + this.props.video_id}
       />
     ) : (
-      ""
+      <div
+        className="embed-pre-render"
+        style={{
+          width: "100%",
+          height: "100%",
+          paddingTop: "56.25%",
+        }}
+      ></div>
     )
   }
 }

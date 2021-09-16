@@ -1,4 +1,9 @@
-import React from "react"
+import React, { Suspense } from "react"
+import { PopupButton } from "@typeform/embed-react"
+import "@typeform/embed/build/css/popup.css"
+
+const LazyTypeformInner = React.lazy(() => import("./lazyTypeformInner"))
+
 class LazyTypeform extends React.Component {
   constructor(props) {
     super(props)
@@ -19,25 +24,14 @@ class LazyTypeform extends React.Component {
     console.log(this.state.loaded)
     window.removeEventListener("mousemove", this.handleLoad)
     window.removeEventListener("touchmove", this.handleLoad)
+    // const { open, close, toggle, refresh } = createPopup("LkNfiuv4")
+    // createPopup("LkNfiuv4")
   }
   render() {
     return this.state.loaded ? (
-      <React.Fragment>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
-            `,
-          }}
-        />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-                  <a class="typeform-share button" href="https://form.typeform.com/to/LkNfiuv4?typeform-medium=embed-snippet" data-mode="popup" style="display:none;" data-size="100" target="_blank">Launch me page </a><script>console.log('test')</script>
-                    `,
-          }}
-        />
-      </React.Fragment>
+      <Suspense fallback={<div></div>}>
+        <LazyTypeformInner></LazyTypeformInner>
+      </Suspense>
     ) : (
       ""
     )
