@@ -1,6 +1,4 @@
 import React, { Suspense } from "react"
-import { PopupButton } from "@typeform/embed-react"
-import "@typeform/embed/build/css/popup.css"
 
 const LazyTypeformInner = React.lazy(() => import("./lazyTypeformInner"))
 
