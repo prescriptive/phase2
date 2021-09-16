@@ -31,11 +31,12 @@ class LazyVideo extends React.Component {
       />
     ) : (
       <div
-        className="embed-pre-render"
+        className="embed-pre-render-2"
         style={{
           width: "100%",
           height: "100%",
           paddingTop: "56.25%",
+          backgroundColor: "rgba(0,0,0,0.7)",
         }}
       ></div>
     )
