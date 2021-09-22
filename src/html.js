@@ -4,11 +4,13 @@ import PropTypes from "prop-types"
 export default function HTML(props) {
   function gtmBodyDelay() {
     return (
-      <div
+      <script
         dangerouslySetInnerHTML={{
           __html: `
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJCSBW"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          setTimeout(function() {
+          document.write(<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJCSBW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>);
+              }, 5000),
               `,
         }}
       />
