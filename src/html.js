@@ -8,8 +8,8 @@ export default function HTML(props) {
         dangerouslySetInnerHTML={{
           __html: `
           setTimeout(function() {
-          document.write(<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJCSBW"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>);
+          document.write('<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJCSBW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
               }, 5000),
               `,
         }}

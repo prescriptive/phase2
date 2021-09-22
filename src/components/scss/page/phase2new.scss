@@ -180,9 +180,10 @@
     p {
       font-size: 27px;
       line-height: 36px;
-      font-family: Roboto;
+      // font-family: Roboto;
       font-style: normal;
       font-weight: 500;
+      font-family: system-ui;
     }
     .section-content {
       max-width: 550px;
