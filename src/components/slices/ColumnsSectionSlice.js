@@ -113,7 +113,7 @@ function ColumnsSectionSlice({ slice }) {
                           linkResolver={linkResolver}
                           htmlSerializer={prismicHtmlSerializer}
                         />
-                        {items.column_image.localFile && <h2>tester</h2>}
+                        <ReturnImage item={item}></ReturnImage>
                       </div>
                     ))}
                 </div>
@@ -137,13 +137,11 @@ function ColumnsSectionSlice({ slice }) {
                     <div key={index} className="column-item">
                       {console.log(item.content.raw)}
                       {item.content.raw && (
-                        <div>
-                          <RichText
-                            render={item.content.raw}
-                            linkResolver={linkResolver}
-                            htmlSerializer={prismicHtmlSerializer}
-                          />
-                        </div>
+                        <RichText
+                          render={item.content.raw}
+                          linkResolver={linkResolver}
+                          htmlSerializer={prismicHtmlSerializer}
+                        />
                       )}
 
                       <ReturnImage item={item}></ReturnImage>
