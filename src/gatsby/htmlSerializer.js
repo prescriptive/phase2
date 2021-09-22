@@ -52,19 +52,25 @@ const LazyVideo = React.lazy(() => import("./lazyVideo"))
 
 const HtmlSerializer = (type, element, content, children) => {
   var link = ""
-
   switch (type) {
+    case "paragraph":
+      console.log(children)
+      if (children !== null) {
+        return content
+      } else {
+        console.log(content)
+        return <p style={{ display: "none" }}>now</p>
+      }
+
+    // return content
+
     case "embed":
       if (element.oembed.type == "video") {
-        console.log(element)
-        console.log(element.oembed.embed_url)
         var video_id = element.oembed.embed_url.split("v=")[1]
         var ampersandPosition = video_id.indexOf("&")
         if (ampersandPosition != -1) {
           video_id = video_id.substring(0, ampersandPosition)
         }
-        console.log(video_id)
-        // lazyframe(".lazyframe")
         return (
           <Suspense fallback={<div></div>}>
             <LazyVideo video_id={video_id}></LazyVideo>

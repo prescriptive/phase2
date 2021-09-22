@@ -62,7 +62,6 @@ const ColumnStyle = styled.div`
 `
 const ReturnImage = ({ item }) => {
   if (item.column_image?.localFile?.childImageSharp) {
-    console.log(item.column_image)
     return (
       <p className="block-img">
         <GatsbyImage
@@ -135,7 +134,6 @@ function ColumnsSectionSlice({ slice }) {
                 {items &&
                   items.map((item, index) => (
                     <div key={index} className="column-item">
-                      {console.log(item.content.raw)}
                       {item.content.raw && (
                         <RichText
                           render={item.content.raw}
@@ -143,7 +141,6 @@ function ColumnsSectionSlice({ slice }) {
                           htmlSerializer={prismicHtmlSerializer}
                         />
                       )}
-
                       <ReturnImage item={item}></ReturnImage>
                     </div>
                   ))}
