@@ -55,11 +55,12 @@ const HtmlSerializer = (type, element, content, children) => {
   switch (type) {
     case "paragraph":
       console.log(children)
-      if (children !== null) {
+      if (children[0] !== null) {
+        console.log(children[0])
         return content
       } else {
         console.log(content)
-        return <p style={{ display: "none" }}>now</p>
+        return <p style={{ display: "none" }}></p>
       }
 
     // return content
