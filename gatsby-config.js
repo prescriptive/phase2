@@ -80,7 +80,7 @@ module.exports = {
       },
     },
 
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
     // 'gatsby-plugin-loadable-components-ssr',
     {
@@ -92,7 +92,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
-    `gatsby-plugin-image`,
     {
       resolve: "gatsby-plugin-sass",
       options: {

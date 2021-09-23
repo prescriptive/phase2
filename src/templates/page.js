@@ -15,7 +15,7 @@ import { useQueryParam, NumberParam } from "use-query-params"
 // import ColumnSectionSlice from `../components/slices/ColumnsSectionSlice`
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
-import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
+// import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
 // import LeftRightSlice from "../components/slices/LeftRightSlice"
 // import EntityQuerySlice from "../components/slices/EntityQuerySlice"
 // import HeroSlice from "../components/slices/HeroSlice"
@@ -155,9 +155,9 @@ const PostSlices = ({
         //   )
 
         case "columns_section":
-          // const ColumnSectionSlice = loadable(() =>
-          //   import(`../components/slices/ColumnsSectionSlice`)
-          // )
+          const ColumnSectionSlice = loadable(() =>
+            import(`../components/slices/ColumnsSectionSlice`)
+          )
           return (
             <div
               id={"slice-id-" + sliceID}
