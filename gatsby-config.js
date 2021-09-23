@@ -38,14 +38,14 @@ module.exports = {
         },
         linkResolver:
           ({ node, key, value }) =>
-          (doc) => {
-            // Your link resolver
-            if (doc.type === "pa") {
-              return "/" + doc.uid
-            }
-            // Homepage route fallback
-            return "/"
-          },
+            (doc) => {
+              // Your link resolver
+              if (doc.type === "pa") {
+                return "/" + doc.uid
+              }
+              // Homepage route fallback
+              return "/"
+            },
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
@@ -64,21 +64,21 @@ module.exports = {
         prismicToolbar: true,
       },
     },
-    {
-      resolve: "@slixites/gatsby-plugin-google-fonts",
-      options: {
-        fonts: [
-          `Libre Franklin\:500,800,900`,
-          `Roboto\:400,500,700,900`, // you can also specify font weights and styles
-        ],
-        display: "swap",
-        preconnect: true,
-        attributes: {
-          rel: "stylesheet preload prefetch",
-          as: "style",
-        },
-      },
-    },
+    // {
+    //   resolve: "@slixites/gatsby-plugin-google-fonts",
+    //   options: {
+    //     fonts: [
+    //       `Libre Franklin\:500,800,900`,
+    //       `Roboto\:400,500,700,900`, // you can also specify font weights and styles
+    //     ],
+    //     display: "swap",
+    //     preconnect: true,
+    //     attributes: {
+    //       rel: "stylesheet preload prefetch",
+    //       as: "style",
+    //     },
+    //   },
+    // },
 
     // `gatsby-plugin-preact`,
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
@@ -177,7 +177,7 @@ module.exports = {
     //     ],
     //   },
     // },
-    `gatsby-plugin-preload-fonts`,
+    // `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
