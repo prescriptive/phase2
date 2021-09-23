@@ -61,7 +61,7 @@ module.exports = {
           podcast: require("./src/schemas/podcast.json"),
           tab: require("./src/schemas/tab.json"),
         },
-        prismicToolbar: true,
+        // prismicToolbar: true,
       },
     },
     {
