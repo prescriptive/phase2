@@ -64,23 +64,23 @@ module.exports = {
         prismicToolbar: true,
       },
     },
-    // {
-    //   resolve: "@slixites/gatsby-plugin-google-fonts",
-    //   options: {
-    //     fonts: [
-    //       `Libre Franklin\:500,800,900`,
-    //       `Roboto\:400,500,700,900`, // you can also specify font weights and styles
-    //     ],
-    //     display: "swap",
-    //     preconnect: true,
-    //     attributes: {
-    //       rel: "stylesheet preload prefetch",
-    //       as: "style",
-    //     },
-    //   },
-    // },
+    {
+      resolve: "@slixites/gatsby-plugin-google-fonts",
+      options: {
+        fonts: [
+          `Libre Franklin\:500,800,900`,
+          `Roboto\:400,500,700,900`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+        preconnect: true,
+        attributes: {
+          rel: "stylesheet preload prefetch",
+          as: "style",
+        },
+      },
+    },
 
-    // `gatsby-plugin-preact`,
+    `gatsby-plugin-preact`,
     // `gatsby-plugin-webpack-bundle-analyser-v2`,
     // 'gatsby-plugin-loadable-components-ssr',
     {
@@ -163,7 +163,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
     //   options: {
     //     fonts: [
     //       {
