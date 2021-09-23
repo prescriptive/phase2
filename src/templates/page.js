@@ -12,10 +12,10 @@ import "../components/scss/page/benefits.scss"
 import SEO from "../components/seo"
 import { withPreview } from "gatsby-source-prismic"
 import { useQueryParam, NumberParam } from "use-query-params"
-import ColumnSectionSlice from `../components/slices/ColumnsSectionSlice`
+// import ColumnSectionSlice from `../components/slices/ColumnsSectionSlice`
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
-// import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
+import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
 // import LeftRightSlice from "../components/slices/LeftRightSlice"
 // import EntityQuerySlice from "../components/slices/EntityQuerySlice"
 // import HeroSlice from "../components/slices/HeroSlice"
