@@ -12,6 +12,7 @@ import "../components/scss/page/benefits.scss"
 import SEO from "../components/seo"
 import { withPreview } from "gatsby-source-prismic"
 import { useQueryParam, NumberParam } from "use-query-params"
+import ColumnSectionSlice from `../components/slices/ColumnsSectionSlice`
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
 // import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
@@ -154,9 +155,9 @@ const PostSlices = ({
         //   )
 
         case "columns_section":
-          const ColumnSectionSlice = loadable(() =>
-            import(`../components/slices/ColumnsSectionSlice`)
-          )
+          // const ColumnSectionSlice = loadable(() =>
+          //   import(`../components/slices/ColumnsSectionSlice`)
+          // )
           return (
             <div
               id={"slice-id-" + sliceID}
