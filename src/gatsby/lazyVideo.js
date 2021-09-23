@@ -37,7 +37,7 @@ class LazyVideo extends React.Component {
           width: "100%",
           height: "100%",
           paddingTop: "56.25%",
-          backgroundColor: "rgba(0,0,0,0.7)",
+          backgroundColor: "rgba(0,0,0,0.65)",
           backgroundImage: videobg,
         }}
       ></div>
