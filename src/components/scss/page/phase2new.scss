@@ -1,5 +1,6 @@
 @import "./src/components/scss/variables.scss";
 @import "./src/components/scss/mixins.scss";
+
 #home {
   background-image: url(../../../images/planes.png);
   background-repeat: no-repeat;
@@ -102,6 +103,9 @@
   }
 }
 #slice-id-phase-2-gear {
+  .embed-pre-render-2{
+    background-image:url(../../../images/testbg.svg);
+  }
   // background: linear-gradient(
   //   119.79deg,
   //   #97231c 0%,

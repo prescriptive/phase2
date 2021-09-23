@@ -1,6 +1,5 @@
 import React from "react"
 import ResponsiveEmbed from "react-responsive-embed"
-import videobg from "../images/testbg.svg"
 class LazyVideo extends React.Component {
   constructor(props) {
     super(props)
@@ -38,7 +37,6 @@ class LazyVideo extends React.Component {
           height: "100%",
           paddingTop: "56.25%",
           backgroundColor: "rgba(0,0,0,0.65)",
-          backgroundImage: videobg,
         }}
       ></div>
     )
