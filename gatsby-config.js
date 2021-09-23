@@ -38,14 +38,14 @@ module.exports = {
         },
         linkResolver:
           ({ node, key, value }) =>
-            (doc) => {
-              // Your link resolver
-              if (doc.type === "pa") {
-                return "/" + doc.uid
-              }
-              // Homepage route fallback
-              return "/"
-            },
+          (doc) => {
+            // Your link resolver
+            if (doc.type === "pa") {
+              return "/" + doc.uid
+            }
+            // Homepage route fallback
+            return "/"
+          },
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
@@ -163,7 +163,7 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
     //   options: {
     //     fonts: [
     //       {
@@ -177,7 +177,7 @@ module.exports = {
     //     ],
     //   },
     // },
-    // `gatsby-plugin-preload-fonts`,
+    `gatsby-plugin-preload-fonts`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
