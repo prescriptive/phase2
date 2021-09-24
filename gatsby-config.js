@@ -38,14 +38,14 @@ module.exports = {
         },
         linkResolver:
           ({ node, key, value }) =>
-          (doc) => {
-            // Your link resolver
-            if (doc.type === "pa") {
-              return "/" + doc.uid
-            }
-            // Homepage route fallback
-            return "/"
-          },
+            (doc) => {
+              // Your link resolver
+              if (doc.type === "pa") {
+                return "/" + doc.uid
+              }
+              // Homepage route fallback
+              return "/"
+            },
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
@@ -61,7 +61,7 @@ module.exports = {
           podcast: require("./src/schemas/podcast.json"),
           tab: require("./src/schemas/tab.json"),
         },
-        // prismicToolbar: true,
+        prismicToolbar: true,
       },
     },
     {

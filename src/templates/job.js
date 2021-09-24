@@ -9,7 +9,7 @@ import Img from "gatsby-image"
 import { RichText } from "prismic-reactjs"
 import prismicHtmlSerializer from "../gatsby/htmlSerializer"
 import linkResolver from "../utils/linkResolver"
-// import { withPreview } from "gatsby-source-prismic"
+import { withPreview } from "gatsby-source-prismic"
 
 const JobStyle = styled.div`
   background: linear-gradient(
@@ -53,7 +53,7 @@ const Job = (props) => {
     </Layout>
   )
 }
-export default Job
+export default withPreview(Job)
 export const query = graphql`
   query JobByUid($uid: String!) {
     job: prismicJob(uid: { eq: $uid }) {
