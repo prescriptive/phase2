@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from "react"
+import React, { useState } from "react"
 
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -10,11 +10,9 @@ import "../components/scss/page/phase2new.scss"
 import "../components/scss/page/faq.scss"
 import "../components/scss/page/benefits.scss"
 import SEO from "../components/seo"
-import { ReactTypeformEmbed } from "react-typeform-embed"
-import Helmet from "react-helmet"
-import Video from "../components/video"
-import { withPreview } from "gatsby-source-prismic"
-import { useQueryParam, NumberParam, StringParam } from "use-query-params"
+// import { withPreview } from "gatsby-source-prismic"
+import { useQueryParam, NumberParam } from "use-query-params"
+// import ColumnSectionSlice from `../components/slices/ColumnsSectionSlice`
 
 // import BasicSectionSlice from "../components/slices/BasicSectionSlice"
 // import ColumnSectionSlice from "../components/slices/ColumnsSectionSlice"
@@ -25,7 +23,6 @@ import { useQueryParam, NumberParam, StringParam } from "use-query-params"
 
 import loadable from "@loadable/component"
 import "../../node_modules/react-modal-video/scss/modal-video.scss"
-import ModalVideo from "react-modal-video"
 // Sort and display the different slice options
 const PostSlices = ({
   slices,
@@ -38,7 +35,6 @@ const PostSlices = ({
 }) => {
   return slices.map((slice, index) => {
     var sliceID = ""
-    console.log(slice.slice_type)
     if (slice.primary) {
       if (slice.primary.slice_id != undefined) {
         var sliceID = slice.primary.slice_id.text
@@ -260,7 +256,7 @@ const Page = ({ data }) => {
   )
 }
 
-export default withPreview(Page)
+export default Page
 
 export const postQuery = graphql`
   query PageBySlug($uid: String!) {
@@ -848,6 +844,18 @@ export const postQuery = graphql`
               content {
                 html
                 raw
+              }
+              column_image {
+                alt
+                localFile {
+                  childImageSharp {
+                    gatsbyImageData(
+                      width: 800
+                      placeholder: DOMINANT_COLOR
+                      formats: [AUTO, WEBP]
+                    )
+                  }
+                }
               }
             }
           }

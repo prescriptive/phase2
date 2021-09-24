@@ -1,5 +1,6 @@
 @import "./src/components/scss/variables.scss";
 @import "./src/components/scss/mixins.scss";
+
 #home {
   background-image: url(../../../images/planes.png);
   background-repeat: no-repeat;
@@ -102,6 +103,13 @@
   }
 }
 #slice-id-phase-2-gear {
+  .embed-pre-render-2 {
+    background-image: url(../../../images/working3.svg);
+    background-size: cover;
+    max-height: 214px;
+    width: 100%;
+    padding-top: 56.25%;
+  }
   // background: linear-gradient(
   //   119.79deg,
   //   #97231c 0%,
@@ -109,12 +117,18 @@
   //   #f46036 118.87%
   // );
   // border-bottom-right-radius: 100%;
-  background-image: url(../../../images/gearnewcrop.png);
+  // background-image: url(../../../images/gearnewcrop.png);
   background-repeat: no-repeat;
   background-size: cover;
   padding-bottom: 15px;
   position: relative;
   z-index: 99;
+  // background-image: url("../../../images/gear-desktop.webp");
+  .embed-pre-render {
+    background-image: url("../../../images/video-placeholder.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
   section {
     min-height: 750px;
     display: flex;
@@ -177,6 +191,7 @@
       font-family: Roboto;
       font-style: normal;
       font-weight: 500;
+      // font-family: system-ui;
     }
     .section-content {
       max-width: 550px;
@@ -240,6 +255,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    &:nth-child(2) {
+      p {
+        // padding-top: 40px;
+        @include mobile() {
+          // padding-top: 0px;
+        }
+      }
+    }
     @include mobile() {
       width: 100% !important;
       max-width: 100%;
@@ -456,5 +479,30 @@
   height: 73px;
   section {
     padding: 0px;
+  }
+}
+
+@include desktop() {
+  #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-desktop.webp");
+  }
+  .webp #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-desktop.webp");
+  }
+}
+@include tablet() {
+  #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-tablet.webp");
+  }
+  #slice-id-phase-2-gear .webp {
+    background-image: url("../../../images/gear-tablet.webp");
+  }
+}
+@include mobile() {
+  #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-mobile.webp");
+  }
+  .webp #slice-id-phase-2-gear {
+    background-image: url("../../../images/gear-mobile.webp");
   }
 }

@@ -1,9 +1,7 @@
-import React from "react"
-import AudioFile from "../components/tokens/audioFile"
+import React, { Suspense } from "react"
 import { Link } from "gatsby"
-import Video from "../components/video"
-import SignUp from "../components/signup"
-import ResponsiveEmbed from "react-responsive-embed"
+// import Video from "../components/video"
+// import SignUp from "../components/signup"
 const linkResolver = (doc, content, linkClass) => {
   // Route for blog posts
   if (doc.type === "blog_post") {
@@ -46,51 +44,69 @@ function toggleTypeForm() {
   aNode.click()
 }
 
-const htmlSerializer = (type, element, content, children) => {
+// const AmazonFrame = lazy(() => import(Test))
+const LazyTypeform = React.lazy(() => import("./lazyTypeform"))
+// const LazyAudiofile = React.lazy(() => import("./lazyAudiofile"))
+const LazySignup = React.lazy(() => import("./lazySignup"))
+const LazyVideo = React.lazy(() => import("./lazyVideo"))
+
+const HtmlSerializer = (type, element, content, children) => {
   var link = ""
   switch (type) {
+    case "paragraph":
+      console.log(children)
+      if (children[0] !== null) {
+        console.log(children[0])
+        return content
+      } else {
+        console.log(content)
+        return <p style={{ display: "none" }}></p>
+      }
+
+    // return content
+
     case "embed":
       if (element.oembed.type == "video") {
-        console.log(element)
-        console.log(element.oembed.embed_url)
         var video_id = element.oembed.embed_url.split("v=")[1]
         var ampersandPosition = video_id.indexOf("&")
         if (ampersandPosition != -1) {
           video_id = video_id.substring(0, ampersandPosition)
         }
-        console.log(video_id)
         return (
-          <ResponsiveEmbed src={"https://www.youtube.com/embed/" + video_id} />
+          <Suspense fallback={<div></div>}>
+            <LazyVideo video_id={video_id}></LazyVideo>
+          </Suspense>
         )
       }
     case "label":
       if (element.data.label) {
-        if (element.data.label == "youtube-popup") {
-          return (
-            <Video className="youtube-popup">{content}</Video>
-            // <span className="youtube-popup" onClick={() => toggleVideo()}>
-            //   {content}
-            // </span>
-          )
-        }
+        // if (element.data.label == "youtube-popup") {
+        //   return (
+        //     <Video className="youtube-popup">{content}</Video>
+        //     // <span className="youtube-popup" onClick={() => toggleVideo()}>
+        //     //   {content}
+        //     // </span>
+        //   )
+        // }
         if (element.data.label == "typeform-cta") {
           return (
-            <span className="typeform-cta" onClick={() => toggleTypeForm()}>
-              {content}
-            </span>
+            <Suspense fallback={<div></div>}>
+              <span className="typeform-cta">
+                {content}
+                <LazyTypeform></LazyTypeform>
+              </span>
+            </Suspense>
           )
         }
         if (element.data.label == "sign-up") {
-          return <SignUp></SignUp>
+          return (
+            <Suspense fallback={<div></div>}>
+              <LazySignup></LazySignup>
+            </Suspense>
+          )
         }
       }
     case "hyperlink":
-      if (element.data.name) {
-        if (element.data.name.includes(".mp3")) {
-          // File type is .mp3
-          link = <AudioFile content={content} element={element} />
-        }
-      }
       if (element.data.link_type == "Document") {
         if (children[0].props != null) {
           var linkClass = children[0].props.className
@@ -123,4 +139,4 @@ const htmlSerializer = (type, element, content, children) => {
 }
 
 // module.exports = htmlSerializer
-export default htmlSerializer
+export default HtmlSerializer

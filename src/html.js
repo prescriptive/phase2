@@ -4,11 +4,13 @@ import PropTypes from "prop-types"
 export default function HTML(props) {
   function gtmBodyDelay() {
     return (
-      <div
+      <script
         dangerouslySetInnerHTML={{
           __html: `
-          <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJCSBW"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+          setTimeout(function() {
+          document.write('<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCJCSBW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>');
+              }, 5000),
               `,
         }}
       />
@@ -17,13 +19,6 @@ export default function HTML(props) {
   return (
     <html {...props.htmlAttributes}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })()
-                `,
-          }}
-        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -52,13 +47,6 @@ export default function HTML(props) {
           dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-                      <a class="typeform-share button" href="https://form.typeform.com/to/LkNfiuv4?typeform-medium=embed-snippet" data-mode="popup" style="display:none;" data-size="100" target="_blank">Launch me page </a><script>console.log('test')</script>
-                        `,
-          }}
-        />
       </body>
     </html>
   )

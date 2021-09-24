@@ -36,14 +36,16 @@ module.exports = {
           // Return true to download the image or false to skip.
           return true
         },
-        linkResolver: ({ node, key, value }) => (doc) => {
-          // Your link resolver
-          if (doc.type === "pa") {
-            return "/" + doc.uid
-          }
-          // Homepage route fallback
-          return "/"
-        },
+        linkResolver:
+          ({ node, key, value }) =>
+          (doc) => {
+            // Your link resolver
+            if (doc.type === "pa") {
+              return "/" + doc.uid
+            }
+            // Homepage route fallback
+            return "/"
+          },
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
@@ -59,7 +61,7 @@ module.exports = {
           podcast: require("./src/schemas/podcast.json"),
           tab: require("./src/schemas/tab.json"),
         },
-        prismicToolbar: true,
+        // prismicToolbar: true,
       },
     },
     {
@@ -268,14 +270,16 @@ module.exports = {
               handler: `CacheFirst`,
             },
             {
-              urlPattern: /^https?:.*\/page-data\/.*\/(page-data|app-data)\.json$/,
+              urlPattern:
+                /^https?:.*\/page-data\/.*\/(page-data|app-data)\.json$/,
               handler: `NetworkFirst`,
               options: {
                 networkTimeoutSeconds: 1,
               },
             },
             {
-              urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+              urlPattern:
+                /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
               handler: `StaleWhileRevalidate`,
             },
             {
