@@ -26,7 +26,7 @@ export const Footer = () => {
       <Container className="footer-container">
         <div>
           &copy; {new Date().getFullYear()}{" "}
-          <a href="https://prescriptive.solutions">
+          <a href="https://prescriptive.solutions" target="_blank">
             Prescriptive Data Solutions
           </a>
         </div>
