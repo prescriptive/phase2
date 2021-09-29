@@ -360,10 +360,12 @@ export const Header = () => {
               </span>
             </li>
             <li>
-              <a href="/login">Log In</a>
+              <a href="https://prescriptive.mangoapps.com/" target="_blank">
+                Log In
+              </a>
             </li>
             <li>
-              <a href={twitter}>
+              <a href={twitter} target="_blank">
                 <img src={twitterimg} />
               </a>
             </li>
