@@ -12,16 +12,21 @@ class LazyTypeform extends React.Component {
   componentWillMount() {
     if (this.state.loaded === true) {
     } else {
-      window.addEventListener("mousemove", this.handleLoad)
-      window.addEventListener("touchmove", this.handleLoad)
+      if (typeof window !== "undefined") {
+        window.addEventListener("mousemove", this.handleLoad)
+        window.addEventListener("touchmove", this.handleLoad)
+      }
     }
   }
 
   handleLoad = () => {
     this.setState({ loaded: true })
     console.log(this.state.loaded)
-    window.removeEventListener("mousemove", this.handleLoad)
-    window.removeEventListener("touchmove", this.handleLoad)
+    if (typeof window !== "undefined") {
+      window.removeEventListener("mousemove", this.handleLoad)
+      window.removeEventListener("touchmove", this.handleLoad)
+    }
+
     // const { open, close, toggle, refresh } = createPopup("LkNfiuv4")
     // createPopup("LkNfiuv4")
   }

@@ -340,12 +340,10 @@ export const Header = () => {
                 <li key={index}>{menuRender(menuitem)}</li>
               ))}
               <li>
-                <Suspense fallback={<div></div>}>
-                  <span className="typeform-cta">
-                    Apply for membership
-                    <LazyApply></LazyApply>
-                  </span>
-                </Suspense>
+                <span className="typeform-cta">
+                  Apply for membership
+                  <LazyApply></LazyApply>
+                </span>
               </li>
               <li>
                 <a href="/login">Log In</a>
