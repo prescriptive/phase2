@@ -6,6 +6,18 @@
   // color: $offWhite;
   font-display: swap;
 }
+main {
+  padding-top: 100px;
+  @media (max-width: 1000px) {
+    padding-top: 77px;
+  }
+}
+.typeform-popup {
+  z-index: 99999999;
+}
+#home main {
+  padding-top: 0px;
+}
 .typeform-cta {
   position: relative;
   cursor: pointer;

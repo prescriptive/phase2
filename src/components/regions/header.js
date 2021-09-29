@@ -16,12 +16,15 @@ const HeaderStyle = styled.header`
   // background-image:linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
   background-image: url(${headerImage});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 112%;
   padding: 12px 0px;
-  position: sticky !important;
+  position: fixed !important;
+  width: 100%;
   top: 0;
-  z-index: 999999;
+  z-index: 999;
   transition: background-color 150ms linear;
+  transition: background-image 150ms linear;
+
   .typeform-cta {
     background-color: ${variable.trueBlue};
     color: white;
@@ -30,9 +33,21 @@ const HeaderStyle = styled.header`
     border: 1px solid white;
     font-size: 18px;
     font-weight: 400;
+    @media (max-width: 1000px) {
+      background-color: transparent;
+      color: #3c3e46;
+      border: 0px;
+      font-size: 27px;
+      padding: 0px;
+      font-weight: 600;
+    }
   }
   &.header-scroll {
     background-color: ${variable.red} !important;
+    background-image: none;
+  }
+  @media (max-width: ${variable.tabletWidth}) {
+    background-size: 122%;
   }
   @media (max-width: ${variable.mobileWidth}) {
     background-size: 122%;
@@ -63,10 +78,10 @@ const HeaderStyle = styled.header`
     align-items: center;
     padding-top: 0px;
     /* padding-bottom: 24px; */
-    @media (max-width: ${variable.mobileWidth}) {
+    /* @media (max-width: ${variable.mobileWidth}) {
       padding-top: 30px;
       padding-bottom: 30px;
-    }
+    } */
   }
   .logo {
     max-width: 190px;
@@ -178,7 +193,7 @@ const HeaderStyle = styled.header`
   .mobile-menu-container {
     display: none;
   }
-  @media (max-width: ${variable.mobileWidth}) {
+  @media (max-width: 1000px) {
     .mobile-menu-container {
       display: block;
     }
@@ -327,37 +342,35 @@ export const Header = () => {
     return () => window.removeEventListener("scroll", listenScrollEvent)
   }, [])
   return (
-    <div style={{ height: "100%", position: "absolute", width: "100%" }}>
-      <HeaderStyle className={header}>
-        <Container className="the-header-container">
-          <div className="header-container">
-            <Link className="logo" to="/">
-              <Img fluid={logo} />
-            </Link>
-            <div className="mobile-menu-container">{<MobileMenu />}</div>
-            <ul className="main-menu">
-              {nav.map((menuitem, index) => (
-                <li key={index}>{menuRender(menuitem)}</li>
-              ))}
-              <li>
-                <span className="typeform-cta">
-                  Apply for membership
-                  <LazyApply></LazyApply>
-                </span>
-              </li>
-              <li>
-                <a href="/login">Log In</a>
-              </li>
-              <li>
-                <a href={twitter}>
-                  <img src={twitterimg} />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </Container>
-      </HeaderStyle>
-    </div>
+    <HeaderStyle className={header}>
+      <Container className="the-header-container">
+        <div className="header-container">
+          <Link className="logo" to="/">
+            <Img fluid={logo} />
+          </Link>
+          <div className="mobile-menu-container">{<MobileMenu />}</div>
+          <ul className="main-menu">
+            {nav.map((menuitem, index) => (
+              <li key={index}>{menuRender(menuitem)}</li>
+            ))}
+            <li>
+              <span className="typeform-cta">
+                Apply for membership
+                <LazyApply></LazyApply>
+              </span>
+            </li>
+            <li>
+              <a href="/login">Log In</a>
+            </li>
+            <li>
+              <a href={twitter}>
+                <img src={twitterimg} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </Container>
+    </HeaderStyle>
   )
 }
 
