@@ -368,6 +368,7 @@ class Mobilemenu extends React.Component {
                     <a
                       href="https://prescriptive.mangoapps.com/"
                       target="_blank"
+                      rel="noopener"
                     >
                       Log In
                     </a>
@@ -378,8 +379,14 @@ class Mobilemenu extends React.Component {
                         data.allPrismicSiteInformation.nodes[0].data.twitter.url
                       }
                       target="_blank"
+                      rel="noopener"
                     >
-                      <img src={twitterimg} />
+                      <img
+                        width="38"
+                        height="32"
+                        alt="Twitter"
+                        src={twitterimg}
+                      />
                     </a>
                   </li>
                 </ul>

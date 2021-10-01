@@ -26,7 +26,11 @@ export const Footer = () => {
       <Container className="footer-container">
         <div>
           &copy; {new Date().getFullYear()}{" "}
-          <a href="https://prescriptive.solutions" target="_blank">
+          <a
+            href="https://prescriptive.solutions"
+            target="_blank"
+            rel="noopener"
+          >
             Prescriptive Data Solutions
           </a>
         </div>
@@ -35,6 +39,7 @@ export const Footer = () => {
             style={{ color: "white", marginTop: "10px", display: "block" }}
             href="https://www.prescriptive.solutions/prescriptive-data-solutions-llc-privacy-policy"
             target="_blank"
+            rel="noopener"
           >
             Privacy Policy
           </a>

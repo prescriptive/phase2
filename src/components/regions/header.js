@@ -346,7 +346,7 @@ export const Header = () => {
       <Container className="the-header-container">
         <div className="header-container">
           <Link className="logo" to="/">
-            <Img fluid={logo} />
+            <Img alt="Phase2 Logo" fluid={logo} />
           </Link>
           <div className="mobile-menu-container">{<MobileMenu />}</div>
           <ul className="main-menu">
@@ -360,13 +360,17 @@ export const Header = () => {
               </span>
             </li>
             <li>
-              <a href="https://prescriptive.mangoapps.com/" target="_blank">
+              <a
+                href="https://prescriptive.mangoapps.com/"
+                target="_blank"
+                rel="noopener"
+              >
                 Log In
               </a>
             </li>
             <li>
-              <a href={twitter} target="_blank">
-                <img src={twitterimg} />
+              <a href={twitter} target="_blank" rel="noopener">
+                <img width="38" height="32" alt="Twitter" src={twitterimg} />
               </a>
             </li>
           </ul>
