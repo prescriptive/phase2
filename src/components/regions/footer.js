@@ -12,13 +12,24 @@ const FooterStyle = styled.footer`
   div {
     color: white;
   }
+  a {
+    color: white;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `
 
 export const Footer = () => {
   return (
     <FooterStyle>
       <Container className="footer-container">
-        <div>&copy; {new Date().getFullYear()} Prescriptive Data Solutions</div>
+        <div>
+          &copy; {new Date().getFullYear()}{" "}
+          <a href="https://prescriptive.solutions" target="_blank">
+            Prescriptive Data Solutions
+          </a>
+        </div>
         <div>
           <a
             style={{ color: "white", marginTop: "10px", display: "block" }}

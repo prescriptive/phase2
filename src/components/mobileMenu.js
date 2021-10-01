@@ -4,6 +4,8 @@ import { Link } from "gatsby"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import * as variable from "../components/variables"
+import LazyApply from "../gatsby/lazyTypeform"
+import twitterimg from "../images/twitt-mobile.png"
 
 const MobileContainer = styled.div`
   display: none;
@@ -286,6 +288,7 @@ class Mobilemenu extends React.Component {
         `}
         render={(data) => (
           <>
+            {console.log(data)}
             <div id="mobile-menu-header">
               <div classnName="menu-container">
                 <MenuToggle
@@ -356,8 +359,27 @@ class Mobilemenu extends React.Component {
                     )
                   )}
                   <li>
-                    <a href="https://www.prescriptive.solutions">
-                      Go to Prescriptive Solutions
+                    <span className="typeform-cta">
+                      Apply for membership
+                      <LazyApply></LazyApply>
+                    </span>
+                  </li>
+                  <li>
+                    <a
+                      href="https://prescriptive.mangoapps.com/"
+                      target="_blank"
+                    >
+                      Log In
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={
+                        data.allPrismicSiteInformation.nodes[0].data.twitter.url
+                      }
+                      target="_blank"
+                    >
+                      <img src={twitterimg} />
                     </a>
                   </li>
                 </ul>

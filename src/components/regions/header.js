@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect, Suspense } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
 import Container from "../container"
@@ -7,7 +7,8 @@ import Img from "gatsby-image"
 import * as variable from "../variables"
 import MobileMenu from "../mobileMenu"
 import headerImage from "../../images/gearnewcrop.png"
-
+import twitterimg from "../../images/twitt.png"
+import LazyApply from "../../gatsby/lazyTypeform"
 const HeaderStyle = styled.header`
   /* position: absolute;
     width: 100%;
@@ -15,8 +16,39 @@ const HeaderStyle = styled.header`
   // background-image:linear-gradient(119.79deg, #97231c 0%, #d0482c 67.37%, #f46036 118.87%);
   background-image: url(${headerImage});
   background-repeat: no-repeat;
-  background-size: cover;
-  padding-bottom: 15px;
+  background-size: 112%;
+  padding: 12px 0px;
+  position: fixed !important;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  transition: background-color 150ms linear;
+  transition: background-image 150ms linear;
+
+  .typeform-cta {
+    background-color: ${variable.trueBlue};
+    color: white;
+    padding: 5px 25px;
+    border-radius: 50px;
+    border: 1px solid white;
+    font-size: 18px;
+    font-weight: 400;
+    @media (max-width: 1000px) {
+      background-color: transparent;
+      color: #3c3e46;
+      border: 0px;
+      font-size: 27px;
+      padding: 0px;
+      font-weight: 600;
+    }
+  }
+  &.header-scroll {
+    background-color: ${variable.red} !important;
+    background-image: none;
+  }
+  @media (max-width: ${variable.tabletWidth}) {
+    background-size: 122%;
+  }
   @media (max-width: ${variable.mobileWidth}) {
     background-size: 122%;
   }
@@ -45,15 +77,15 @@ const HeaderStyle = styled.header`
     justify-content: space-between;
     align-items: center;
     padding-top: 0px;
-    padding-bottom: 24px;
-    @media (max-width: ${variable.mobileWidth}) {
+    /* padding-bottom: 24px; */
+    /* @media (max-width: ${variable.mobileWidth}) {
       padding-top: 30px;
       padding-bottom: 30px;
-    }
+    } */
   }
   .logo {
-    max-width: 293px;
-    width: 293px;
+    max-width: 190px;
+    width: 190px;
     .gatsby-image-wrapper {
       padding: 0px 1px;
     }
@@ -95,10 +127,10 @@ const HeaderStyle = styled.header`
     padding: 0px;
     li {
       list-style: none;
-      margin-right: 50px;
+      margin-right: 35px;
       position: relative;
       @media (max-width: ${variable.tabletWidth}) {
-        margin-right: 20px;
+        margin-right: 15px;
       }
       &:last-child {
         margin-right: 0px;
@@ -108,9 +140,16 @@ const HeaderStyle = styled.header`
         color: white;
         font-size: 18px;
         font-weight: 400;
-        padding: 20px 0px;
+        /* padding: 20px 0px;
         position: relative;
-        top: 6px;
+        top: 6px; */
+        img {
+          width: 38px;
+          height: auto;
+        }
+        @media (max-width: 1200px) {
+          font-size: 16px;
+        }
         @media (max-width: ${variable.tabletWidth}) {
           font-size: 15px;
         }
@@ -154,7 +193,7 @@ const HeaderStyle = styled.header`
   .mobile-menu-container {
     display: none;
   }
-  @media (max-width: ${variable.mobileWidth}) {
+  @media (max-width: 1000px) {
     .mobile-menu-container {
       display: block;
     }
@@ -289,14 +328,22 @@ export const Header = () => {
   if (data.site.nodes[0].data.twitter) {
     var twitter = data.site.nodes[0].data.twitter.url
   }
+  const [header, setHeader] = useState("header")
+  const listenScrollEvent = (event) => {
+    if (window.scrollY < 1) {
+      return setHeader("header header-top")
+    } else if (window.scrollY > 1) {
+      return setHeader("header header-scroll")
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent)
+
+    return () => window.removeEventListener("scroll", listenScrollEvent)
+  }, [])
   return (
-    <HeaderStyle className="header">
+    <HeaderStyle className={header}>
       <Container className="the-header-container">
-        <div class="back-to-pre">
-          <a target="_blank" href="https://www.prescriptive.solutions">
-            Go to Prescriptive Solutions
-          </a>
-        </div>
         <div className="header-container">
           <Link className="logo" to="/">
             <Img fluid={logo} />
@@ -306,6 +353,22 @@ export const Header = () => {
             {nav.map((menuitem, index) => (
               <li key={index}>{menuRender(menuitem)}</li>
             ))}
+            <li>
+              <span className="typeform-cta">
+                Apply for membership
+                <LazyApply></LazyApply>
+              </span>
+            </li>
+            <li>
+              <a href="https://prescriptive.mangoapps.com/" target="_blank">
+                Log In
+              </a>
+            </li>
+            <li>
+              <a href={twitter} target="_blank">
+                <img src={twitterimg} />
+              </a>
+            </li>
           </ul>
         </div>
       </Container>

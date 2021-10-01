@@ -12,7 +12,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify-cache`,
     "gatsby-plugin-use-query-params",
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -38,14 +37,14 @@ module.exports = {
         },
         linkResolver:
           ({ node, key, value }) =>
-            (doc) => {
-              // Your link resolver
-              if (doc.type === "pa") {
-                return "/" + doc.uid
-              }
-              // Homepage route fallback
-              return "/"
-            },
+          (doc) => {
+            // Your link resolver
+            if (doc.type === "pa") {
+              return "/" + doc.uid
+            }
+            // Homepage route fallback
+            return "/"
+          },
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
