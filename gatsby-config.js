@@ -46,7 +46,7 @@ module.exports = {
             return "/"
           },
         // PrismJS highlighting for labels and slices
-        repositoryName: `phase2`,
+        repositoryName: `phase3`,
         accessToken: `${process.env.API_KEY}`,
         releaseID: `YIrY7RAAACEA-2Nt`,
         schemas: {
