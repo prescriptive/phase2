@@ -28,7 +28,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    
     {
       resolve: `gatsby-source-prismic`,
       options: {
@@ -49,7 +48,7 @@ module.exports = {
         // PrismJS highlighting for labels and slices
         repositoryName: `phase2`,
         accessToken: `${process.env.API_KEY}`,
-        releaseID: `YIrY7RAAACEA-2Nt`,
+        releaseID: `${process.env.PRISMIC_RELEASE_ID}`,
         schemas: {
           pa: require("./src/schemas/page.json"),
           blog_post: require("./src/schemas/blog_post.json"),
