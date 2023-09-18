@@ -1,0 +1,3 @@
+# Redirect all traffic from your Netlify subdomain to your primary domain:
+
+https://phase2.netlify.app/* https://phase2.prescriptive.solutions//:splat 301!
