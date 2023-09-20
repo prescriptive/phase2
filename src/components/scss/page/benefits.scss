@@ -52,6 +52,7 @@
   font-family: "Libre Franklin" !important;
   font-weight: 800;
   transition: box-shadow 0.3s ease-in-out;
+
   &:nth-child(2) {
     @include tablet() {
       border-left: thin solid $trueBlue !important;
@@ -79,6 +80,21 @@
   }
   @include mobilesmall() {
     font-size: 16px;
+  }
+  h2{
+    font-size: 26px;
+    margin:0px;
+    padding:0px;
+    line-height:normal;
+    @include tablet() {
+      font-size: 26px;
+    }
+    @include mobile() {
+      font-size: 18px;
+    }
+    @include mobilesmall() {
+      font-size: 16px;
+    }
   }
 }
 .react-tabs__tab--selected {

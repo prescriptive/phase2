@@ -87,7 +87,7 @@ const TabNewSlice = ({ slice, tab }) => {
           {slice.items.map((tab, index) => (
             <Fragment>
               <Tab key={index}>
-                {tab.tab.document.dataRaw.tab_title[0].text}
+                <h2>{tab.tab.document.dataRaw.tab_title[0].text}</h2>
               </Tab>
             </Fragment>
           ))}
