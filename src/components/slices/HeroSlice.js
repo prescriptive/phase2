@@ -47,7 +47,9 @@ export const HeroSlice = ({ slice }) => {
         <BackgroundImage Tag="section" fluid={fluid}>
           <Container className="hero-slice-container">
             <div className="hero-flex" style={{ minHeight: min_height }}>
-              <h1 style={{ color: font_color }}>{hero_title}</h1>
+              {hero_title && (
+                <h1 style={{ color: font_color }}>{hero_title}</h1>
+              )}
             </div>
           </Container>
         </BackgroundImage>
